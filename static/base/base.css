@@ -3,10 +3,6 @@
     padding: 0;
 }
 
-body {
-    height: 400vh;
-}
-
 li {
     list-style: none;
 }
@@ -15,30 +11,43 @@ a {
     text-decoration: none;
 }
 
-.navbar a, .right i {
-    color: white;
+.navbar, .center, .right, .social-list, .search {
+    display: grid;
 }
 
-.info-list, .social-list, .icons-list, .login-list {
-    align-items: center;
+.info-list, .icons-list, .login-list {
     display: flex;
-    flex-direction: row;
+}
+
+.navbar a, .right i {
+    color: white;
 }
 
 .logo-text, .info-list li a, .login {
     font-family: 'Balsamiq Sans', cursive;
 }
 
-.navbar, .center, .right {
-    display: grid;
+.icons-list li, .login-list li {
+    margin: 0 20px 0 0;
+}
+
+.info-list  {
+    align-items: center;
+    flex-direction: row;
+}
+
+.icons-list {
+    flex-direction: row;
+    align-self: center;
+    justify-content: end;
 }
 
 .navbar {
     top: 0;
     height: 100px;
     position: sticky;
-    background: black;
-    grid-template-columns: 1fr 3fr 2fr;
+    background: #161616;
+    grid-template-columns: 1fr 4fr 2fr;
 }
 
 .logo {
@@ -65,29 +74,47 @@ a {
 }
 
 .right {
-    align-items: center;
-    grid-template-areas: "social icons"
-                         "login  login";
-    grid-template-rows: 1fr 2fr;
+    grid-template-areas: "icons icons"
+                         "login login";
+    grid-template-rows: 1fr 1fr;
+}
+
+.right .icons {
+    align-self: center;
 }
 
 .social-list {
-    grid-area: social;
-    justify-content: space-around;
+    align-items: center;
+    text-align: right;
+    grid-template-columns: repeat(4, 1fr);
 }
 
 .icons {
     grid-area: icons;
 }
 
-.icons-list, .login-list {
+.login {
+    grid-area: login;
+}
+
+.search {
+    grid-template-columns: 2fr 1fr;
+    align-items: center;
+}
+
+.login-list {
     justify-content: end;
 }
 
-.icons-list li, .login-list li {
-    margin: 0 20px 0 0;
+.login-list li {
+    font-size: 14px;
+    padding: 7px 15px;
+    border-radius: 5px;
+    background-color: #343a40;
 }
 
-.login {
-    grid-area: login;
+.search_container input {
+    padding: 10px;
+    width: 100%;
+    outline-style: none;
 }
