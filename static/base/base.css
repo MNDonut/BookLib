@@ -1,0 +1,93 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    height: 400vh;
+}
+
+li {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+.navbar a, .right i {
+    color: white;
+}
+
+.info-list, .social-list, .icons-list, .login-list {
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+}
+
+.logo-text, .info-list li a, .login {
+    font-family: 'Balsamiq Sans', cursive;
+}
+
+.navbar, .center, .right {
+    display: grid;
+}
+
+.navbar {
+    top: 0;
+    height: 100px;
+    position: sticky;
+    background: black;
+    grid-template-columns: 1fr 3fr 2fr;
+}
+
+.logo {
+    text-align: left;
+    align-self: center;
+    padding: 0 0 0 20px;
+}
+
+.logo-text {
+    font-size: 32px;
+}
+
+.center {
+    grid-template-rows: 1fr 2fr;
+}
+
+.info-list {
+    text-align: center;
+    justify-content: space-between;
+}
+
+.info-list li a {
+    font-size: 14px;
+}
+
+.right {
+    align-items: center;
+    grid-template-areas: "social icons"
+                         "login  login";
+    grid-template-rows: 1fr 2fr;
+}
+
+.social-list {
+    grid-area: social;
+    justify-content: space-around;
+}
+
+.icons {
+    grid-area: icons;
+}
+
+.icons-list, .login-list {
+    justify-content: end;
+}
+
+.icons-list li, .login-list li {
+    margin: 0 20px 0 0;
+}
+
+.login {
+    grid-area: login;
+}
