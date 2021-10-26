@@ -64,6 +64,10 @@ a {
     grid-template-rows: 1fr 2fr;
 }
 
+.center a:hover, .right a:hover {
+    text-decoration: underline;
+}
+
 .info-list {
     text-align: center;
     justify-content: space-between;
