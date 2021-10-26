@@ -18,7 +18,6 @@
         rel="stylesheet">
     <title>{% block title %}{% endblock %}</title>
 </head>
-
 <body>
     <div class="navbar">
         <div class="logo">
@@ -27,24 +26,12 @@
         </div>
         <div class="center">
             <ul class="info-list">
-                <li>
-                    <a href="#">Автори</a>
-                </li>
-                <li>
-                    <a href="#">Видавництва</a>
-                </li>
-                <li>
-                    <a href="#">Доставка та оплата</a>
-                </li>
-                <li>
-                    <a href="#">Обмін та повернення</a>
-                </li>
-                <li>
-                    <a href="#">Про BookLib</a>
-                </li>
-                <li>
-                    <a href="#">Контакти</a>
-                </li>
+                <li><a href="#">Автори</a></li>
+                <li><a href="#">Видавництва</a></li>
+                <li><a href="#">Доставка та оплата</a></li>
+                <li><a href="#">Обмін та повернення</a></li>
+                <li><a href="#">Про BookLib</a></li>
+                <li><a href="#">Контакти</a></li>
             </ul>
             <div class="search">
                 <div class="search_container">
@@ -52,18 +39,10 @@
                 </div>
                 <div class="social">
                     <ul class="social-list">
-                        <li>
-                            <a href="#"><i class="fab fa-instagram fa-lg"></i></a>
-                        </li>
-                        <li>
-                            <a href="#"><i class="fab fa-telegram fa-lg"></i></a>
-                        </li>
-                        <li>
-                            <a href="#"><i class="fab fa-facebook fa-lg"></i></a>
-                        </li>
-                        <li>
-                            <a href="#"><i class="fab fa-viber fa-lg"></i></a>
-                        </li>
+                        <li><a href="#"><i class="fab fa-instagram fa-lg"></i></a></li>
+                        <li><a href="#"><i class="fab fa-telegram fa-lg"></i></a></li>
+                        <li><a href="#"><i class="fab fa-facebook fa-lg"></i></a></li>
+                        <li><a href="#"><i class="fab fa-viber fa-lg"></i></a></li>
                     </ul>
                 </div>
             </div>
@@ -90,6 +69,25 @@
     </div>
     {% block content %}
     {% endblock %}
+    <footer>
+        <div class="footer-info">
+            <ul class="footer-info-list">
+                <li><a href="#">Про BookLib</a></li>
+                <li><a href="#">Обмін та повернення</a></li>
+                <li><a href="#">Доставка та оплата</a></li>
+                <li><a href="#">Автори</a></li>
+                <li><a href="#">Видавництва</a></li>
+            </ul>
+        </div>
+        <div class="footer-social">
+            <ul class="footer-social-list">
+                <li><a href="#"><i class="fab fa-instagram fa-lg"></i></a></li>
+                <li><a href="#"><i class="fab fa-telegram fa-lg"></i></a></li>
+                <li><a href="#"><i class="fab fa-facebook fa-lg"></i></a></li>
+                <li><a href="#"><i class="fab fa-viber fa-lg"></i></a></li>
+            </ul>
+        </div>
+        <div class="rights"><p>2021 BookLib. All rights reserved</p></div>
+    </footer>
 </body>
-
 </html>

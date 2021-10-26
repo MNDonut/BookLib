@@ -1,6 +1,12 @@
 * {
     margin: 0;
     padding: 0;
+    --menu: #161616;
+    --frame: #343a40;
+}
+
+html, body {
+    height: 100%;
 }
 
 li {
@@ -11,7 +17,7 @@ a {
     text-decoration: none;
 }
 
-.navbar, .center, .right, .social-list, .search {
+.navbar, .center, .right, .social-list, .search, footer, .footer-info-list, .footer-social-list {
     display: grid;
 }
 
@@ -19,11 +25,15 @@ a {
     display: flex;
 }
 
-.navbar a, .right i {
+.center a:hover, .right a:hover, footer a:hover {
+    text-decoration: underline;
+}
+
+.navbar a, .right i, footer a, .rights {
     color: white;
 }
 
-.logo-text, .info-list li a, .login {
+.logo-text, .info-list li a, .login, footer {
     font-family: 'Balsamiq Sans', cursive;
 }
 
@@ -46,7 +56,7 @@ a {
     top: 0;
     height: 100px;
     position: sticky;
-    background: #161616;
+    background: var(--menu);
     grid-template-columns: 1fr 4fr 2fr;
 }
 
@@ -62,10 +72,6 @@ a {
 
 .center {
     grid-template-rows: 1fr 2fr;
-}
-
-.center a:hover, .right a:hover {
-    text-decoration: underline;
 }
 
 .info-list {
@@ -114,11 +120,45 @@ a {
     font-size: 14px;
     padding: 7px 15px;
     border-radius: 5px;
-    background-color: #343a40;
+    background-color: var(--frame);
 }
 
 .search_container input {
     padding: 10px;
     width: 100%;
     outline-style: none;
+}
+
+footer {
+    height: 270px;
+    padding: 20px 20px 10px;
+    grid-template-areas: "footer-info footer-social"
+                              "rights rights";
+    grid-template-columns: 1fr 1fr;
+    column-gap: 100px;
+    row-gap: 30px;
+    background: var(--menu);
+}
+
+.footer-info {
+    grid-area: footer-info;
+}
+
+.footer-info-list {
+    row-gap: 20px;
+}
+
+.footer-social {
+    grid-area: footer-social;
+}
+
+.footer-social-list {
+    text-align: right;
+    row-gap: 20px;
+}
+
+.rights {
+    display: flex;
+    grid-area: rights;
+    align-items: flex-end;
 }
