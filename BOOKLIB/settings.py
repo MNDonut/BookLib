@@ -81,7 +81,7 @@ WSGI_APPLICATION = 'BOOKLIB.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'booklib',
+        'NAME': 'booklibdb',
         'USER': 'ihor',
         'PASSWORD': '12345',
         'HOST': 'localhost',
@@ -108,6 +108,7 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+AUTH_USER_MODEL = 'account.CustomUser'
 
 # Internationalization
 # https://docs.djangoproject.com/en/3.2/topics/i18n/
