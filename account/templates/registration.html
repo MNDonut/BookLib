@@ -1,0 +1,26 @@
+{% extends 'base/base.html' %}
+{% load static %}
+{% block title %}Register{% endblock %}
+
+{% block content %}
+<link rel="stylesheet" href="{% static 'form.css' %}">
+<div class="authorization-wrapper">
+    <form class="authorization-form" method="post">
+        <h1>Registration</h1>
+        <br>
+        {% csrf_token %}
+        {% for field in form %}
+        <p class="authorization-field">{{ field }}</p>
+        <br>
+            {% for error in field.errors %}
+                <p class="authorization-error">{{ error }}</p>
+                <br>
+            {% endfor %}
+        {% endfor %}
+        <button class="authorization-button" type="submit">Зареєструватись</button>
+        <br><br>
+        <p>Уже зареєстровані? <a class="authorization-question" href="#">Увійти</a></p>
+    </form>
+</div>
+
+{% endblock %}

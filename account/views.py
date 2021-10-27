@@ -1,5 +1,18 @@
-from django.shortcuts import render
+from django.shortcuts import redirect, render
+from .forms import RegistrationForm
 
 def register(request):
-    context = {}
-    return render(request, 'base/base.html', context)
+    if request.method == "POST":
+        form = RegistrationForm(request.POST)
+        if form.is_valid():
+            form.save()
+            # change to index
+            return render(request, 'registration.html', {})
+        else:
+            return render(request, 'registration.html', {'form': form})
+
+    form = RegistrationForm()
+    context = {
+        'form': form
+    }
+    return render(request, 'registration.html', context)

@@ -63,13 +63,13 @@
                     <ul class="login-list">
                         <li><a href="#">Категорії</a></li>
                         <li><a href="#">Увійти</a></li>
-                        <li><a href="#">Реєстрація</a></li>
+                        <li><a href="{% url 'register' %}">Реєстрація</a></li>
                     </ul>
                 </div>
             </div>
-        </div>
+        </div> 
         {% block content %}
-        {% endblock %}
+        {% endblock %} 
     </div>
     <footer>
         <div class="footer-info">
