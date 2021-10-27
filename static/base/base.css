@@ -5,8 +5,16 @@
     --frame: #343a40;
 }
 
-html, body {
-    height: 100%;
+body {
+    /* fixing the footer to down */
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.wrapper {
+    /* fill all spare space */
+    flex-grow: 1;
 }
 
 li {
