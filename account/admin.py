@@ -17,7 +17,7 @@ class CustomUserAdmin(UserAdmin):
         (None, {
             'classes': ('wide',),
             # show additional fields when I wanna add a new user on the admin panel
-            'fields': ('firstname', 'lastname', 'patronymic', 'email', 'password1', 'password2'),
+            'fields': ('firstname', 'lastname', 'patronymic', 'email', 'password'),
         }),
     )
     # display fields of users on the admin panel 

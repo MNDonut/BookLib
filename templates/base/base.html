@@ -62,8 +62,13 @@
                 <div class="login">
                     <ul class="login-list">
                         <li><a href="#">Категорії</a></li>
-                        <li><a href="#">Увійти</a></li>
+                        {% if user.is_authenticated %}
+                        <li><a href="#">Привіт, {{ user.firstname }}</a></li>
+                        <li><a href="{% url 'logout' %}">Вийти</a></li>
+                        {% else %}
+                        <li><a href="{% url 'login' %}">Увійти</a></li>
                         <li><a href="{% url 'register' %}">Реєстрація</a></li>
+                        {% endif %}
                     </ul>
                 </div>
             </div>

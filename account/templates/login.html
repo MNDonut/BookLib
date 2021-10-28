@@ -1,0 +1,25 @@
+{% extends 'base/base.html' %}
+{% load static %}
+{% block title %}Login{% endblock %}
+
+{% block content %}
+<link rel="stylesheet" href="{% static 'form.css' %}">
+<div class="authorization-wrapper">
+    <form class="authorization-form" method="post">
+        <h1>Вхід</h1>
+        <br>
+        {% csrf_token %}
+        {% for field in form %}
+        <p class="authorization-field">{{ field }}</p>
+        <br>
+        {% endfor %}
+        {% if form.errors %}
+        <p class="authorization-error">Неправильний логін або пароль</p>
+        <br>
+        {% endif %}
+        <button class="authorization-button" type="submit">Увійти</button>
+        <br><br>
+        <p>Уперше на сайті? <a class="authorization-question" href="{% url 'register' %}">Зареєструватись</a></p>
+    </form>
+</div>
+{% endblock %}
