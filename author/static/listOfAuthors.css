@@ -1,0 +1,25 @@
+.authors-wrapper {
+    padding: 20px;
+}
+
+.authors-h1, .author {
+    font-family: 'Balsamiq Sans', cursive;
+}
+
+.authors-list-wrapper {
+    padding: 5px 0 0;
+    border-top: 1px solid var(--frame);
+    border-bottom: 1px solid var(--frame);
+    display: grid;
+    justify-content: space-between;
+    grid-template-columns: repeat(6, 1fr);
+}
+
+.author {
+    color:rgb(33, 94, 165);
+    padding-bottom: 5px;
+}
+
+.author:hover {
+    text-decoration: underline;
+}

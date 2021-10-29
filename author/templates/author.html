@@ -1,0 +1,12 @@
+{% extends 'base/base.html '%}
+{% load static %}
+{% block title %}{{ author }}{% endblock %}
+
+{% block content %}
+<link rel="stylesheet" href="{% static 'listOfAuthors.css' %}">
+<link rel="stylesheet" href="{% static 'author.css' %}">
+<div class="author-wrapper">
+    <h1 class="author-h1">{{ author }}</h1>
+    <br>
+</div>
+{% endblock %}

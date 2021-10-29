@@ -1,0 +1,16 @@
+{% extends 'base/base.html '%}
+{% load static %}
+{% block title %}Booklib - Автори{% endblock %}
+
+{% block content %}
+<link rel="stylesheet" href="{% static 'listOfAuthors.css' %}">
+<div class="authors-wrapper">
+    <h1 class="authors-h1">Автори</h1>
+    <br>
+    <div class="authors-list-wrapper">
+        {% for author in authors %}
+            <a class="author" href="{% url 'author' author.slug %}">{{ author }}</a>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}
