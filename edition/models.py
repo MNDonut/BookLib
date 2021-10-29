@@ -3,7 +3,7 @@ from unidecode import unidecode
 from django.utils.text import slugify
 
 class Edition(models.Model):
-    title = models.CharField(max_length=64)
+    title = models.CharField('Назва', max_length=64)
     slug = models.CharField(max_length=70, blank=True)
 
     def __str__(self):

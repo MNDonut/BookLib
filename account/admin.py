@@ -28,4 +28,3 @@ class CustomUserAdmin(UserAdmin):
 
 
 admin.site.register(get_user_model(), CustomUserAdmin)
-admin.site.register(Author)

@@ -1,11 +1,11 @@
 from django.db import models
-# import these modules for auto
+# import these modules for autogenerating slugs
 from unidecode import unidecode
 from django.utils.text import slugify
 
 class Author(models.Model):
-    firstname = models.CharField('First name', max_length=32)
-    lastname = models.CharField('Last name', max_length=32)
+    firstname = models.CharField('Ім\я', max_length=32)
+    lastname = models.CharField('Прізвище', max_length=32)
     slug = models.CharField(max_length=70, blank=True)
 
     def __str__(self):
