@@ -1,0 +1,16 @@
+{% extends 'base/base.html '%}
+{% load static %}
+{% block title %}Booklib - Видавництва{% endblock %}
+
+{% block content %}
+<link rel="stylesheet" href="{% static 'listOfEditions.css' %}">
+<div class="editions-wrapper">
+    <h1 class="editions-h1">Видавництва</h1>
+    <br>
+    <div class="editions-list-wrapper">
+        {% for edition in editions %}
+            <a class="edition" href="{% url 'edition' edition.slug %}">{{ edition }}</a>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}
