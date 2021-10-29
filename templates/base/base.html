@@ -61,7 +61,7 @@
                 </div>
                 <div class="login">
                     <ul class="login-list">
-                        <li><a href="#">Категорії</a></li>
+                        <li><a href="{% url 'listOfCategories' %}">Категорії</a></li>
                         {% if user.is_authenticated %}
                         <li><a href="#">Привіт, {{ user.firstname }}</a></li>
                         <li><a href="{% url 'logout' %}">Вийти</a></li>

@@ -3,6 +3,8 @@
     padding: 0;
     --menu: #161616;
     --frame: #343a40;
+    /* for hiding category images below menu */
+    z-index: 2;
 }
 
 body {

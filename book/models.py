@@ -16,6 +16,7 @@ PAPERTYPES = (
 )
 
 class Category(models.Model):
+    image = models.ImageField(upload_to='book_images/category_images')
     title = models.CharField('Назва', max_length=128)
     slug = models.CharField(blank=True, max_length=128)
 
@@ -47,3 +48,11 @@ class Book(models.Model):
     isAvailable = models.BooleanField('Доступна', default=True)
     isHot = models.BooleanField('Популярна', default=False)
     isNew = models.BooleanField('Новинка', default=False)
+    slug = models.CharField(max_length=128, blank=True)
+
+    def __str__(self):
+        return str(self.title).capitalize()
+
+    def save(self, *args, **kwargs):
+        self.slug = slugify(unidecode(self.title))
+        super(Book, self).save(*args, **kwargs)
