@@ -10,13 +10,25 @@
     <div class="books-list-wrapper">
         {% for book in books %}
         <div class="book">
+            {% if book.isNew %}
+            <div class="book-new">
+                <span>Новинка</span>
+            </div>
+            {% endif %}
+            {% if book.isHot %}
+            <div class="book-popular">
+                <span>Популярна</span>
+            </div>
+            {% endif %}
             <div class="book-img-container">
                 <a href="#"><img src="{{ book.image.url }}" class="book-img"></a>
             </div>
             <a href="#" class="book-title"><b>{{ book.title }}</b></a>
             <a href="{% url 'author' book.author.slug %}" class="book-author">{{ book.author }}</a>
             <a class="book-price">{{ book.price }}<b> UAH</b></a>
-            <a href="#" class="book-buy">У кошик</a>
+            {% if book.isAvailable %}
+                <a href="#" class="book-buy">У кошик</a>
+            {% endif %}
         </div>
         {% endfor %}
     </div>

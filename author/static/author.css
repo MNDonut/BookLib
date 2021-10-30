@@ -23,7 +23,8 @@
 .book {
     z-index: 1;
     display: grid;
-    grid-template-areas: "img img"
+    grid-template-areas: "new popular"
+                         "img img"
                          "title title"
                          "author author"
                          "price buy";
@@ -34,6 +35,22 @@
 
 .book:hover {
     transform: scale(1.05);
+}
+
+.book-new {
+    background: rgb(29, 218, 29);
+    grid-area: new;
+}
+
+.book-popular {
+    background: crimson;
+    grid-area: popular;
+}
+
+.book-new, .book-popular {
+    padding: 5px 0;
+    text-align: center;
+    color: white;
 }
 
 .book-img-container {

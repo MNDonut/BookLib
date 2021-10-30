@@ -19,13 +19,30 @@
 .book {
     z-index: 1;
     display: grid;
-    grid-template-areas: "img img"
+    grid-template-areas: "new popular"
+                         "img img"
                          "title title"
                          "author author"
                          "price buy";
     row-gap: 20px;
     padding: 0 0 10px;
     transition: 0.3s ease-in-out;
+}
+
+.book-new {
+    background: rgb(29, 218, 29);
+    grid-area: new;
+}
+
+.book-popular {
+    background: crimson;
+    grid-area: popular;
+}
+
+.book-new, .book-popular {
+    padding: 5px 0;
+    text-align: center;
+    color: white;
 }
 
 .book:hover {
