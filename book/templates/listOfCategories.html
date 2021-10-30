@@ -9,9 +9,8 @@
     <br>
     <div class="categories-list-wrapper">
         {% for category in categories %}
-        <!-- add href to specific category page -->
         <div class="category-block">
-            <a class="category" href="#">
+            <a class="category" href="{% url 'booksByCategory' category.slug %}">
                 <img class="category-img" src="{{category.image.url}}" alt="">
                 <div class="category-title">{{ category }}</div>
             </a>
