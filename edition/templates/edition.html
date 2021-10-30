@@ -3,10 +3,22 @@
 {% block title %}{{ edition }}{% endblock %}
 
 {% block content %}
-<link rel="stylesheet" href="{% static 'listOfEditions.css' %}">
 <link rel="stylesheet" href="{% static 'edition.css' %}">
 <div class="edition-wrapper">
     <h1 class="edition-h1">{{ edition }}</h1>
     <br>
+    <div class="books-list-wrapper">
+        {% for book in books %}
+        <div class="book">
+            <div class="book-img-container">
+                <a href="#"><img src="{{ book.image.url }}" class="book-img"></a>
+            </div>
+            <a href="#" class="book-title"><b>{{ book.title }}</b></a>
+            <a href="{% url 'author' book.author.slug %}" class="book-author">{{ book.author }}</a>
+            <a class="book-price">{{ book.price }}<b> UAH</b></a>
+            <a href="#" class="book-buy">У кошик</a>
+        </div>
+        {% endfor %}
+    </div>
 </div>
 {% endblock %}

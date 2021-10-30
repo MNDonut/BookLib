@@ -15,7 +15,7 @@
             </div>
             <a href="#" class="book-title"><b>{{ book.title }}</b></a>
             <a href="{% url 'author' book.author.slug %}" class="book-author">{{ book.author }}</a>
-            <a class="book-price">{{ book.price}}<b> UAH</b></a>
+            <a class="book-price">{{ book.price }}<b> UAH</b></a>
             <a href="#" class="book-buy">У кошик</a>
         </div>
         {% endfor %}

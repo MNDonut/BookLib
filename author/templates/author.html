@@ -3,10 +3,22 @@
 {% block title %}{{ author }}{% endblock %}
 
 {% block content %}
-<link rel="stylesheet" href="{% static 'listOfAuthors.css' %}">
 <link rel="stylesheet" href="{% static 'author.css' %}">
 <div class="author-wrapper">
     <h1 class="author-h1">{{ author }}</h1>
     <br>
+    <div class="books-list-wrapper">
+        {% for book in books %}
+        <div class="book">
+            <div class="book-img-container">
+                <a href="#"><img src="{{ book.image.url }}" class="book-img"></a>
+            </div>
+            <a href="#" class="book-title"><b>{{ book.title }}</b></a>
+            <a href="{% url 'author' book.author.slug %}" class="book-author">{{ book.author }}</a>
+            <a class="book-price">{{ book.price }}<b> UAH</b></a>
+            <a href="#" class="book-buy">У кошик</a>
+        </div>
+        {% endfor %}
+    </div>
 </div>
 {% endblock %}
