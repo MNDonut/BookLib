@@ -10,10 +10,12 @@
     <div class="categories-list-wrapper">
         {% for category in categories %}
         <!-- add href to specific category page -->
-        <a class="category" href="#">
-            <img class="category-img" src="{{category.image.url}}" alt="">
-            <span class="category-title">{{ category }}</span>
-        </a>
+        <div class="category-block">
+            <a class="category" href="#">
+                <img class="category-img" src="{{category.image.url}}" alt="">
+                <div class="category-title">{{ category }}</div>
+            </a>
+        </div>
         {% endfor %}
     </div>
 </div>
