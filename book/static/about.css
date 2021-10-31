@@ -1,0 +1,31 @@
+.about-wrapper {
+    padding: 20px 40px;
+}
+
+.about-list-item {
+    padding: 5px 0;
+}
+
+h1 {
+    font-family: 'Balsamiq Sans', cursive;
+}
+
+.about-list-item-text {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color: var(--menu);
+}
+
+.about-list-item-title {
+    font-size: 18px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: var(--menu);
+    border-radius: 5px;
+    border: 1px solid black;
+    width: max-content;
+    padding: 5px 10px;
+}
+
+.about-social-item {
+    font-family: 'Balsamiq Sans', cursive;
+
+}

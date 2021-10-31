@@ -21,3 +21,6 @@ def booksByCategory(request, slug):
     }
 
     return render(request, 'booksByCategory.html', context)
+
+def about(request):
+    return render(request, 'about.html', {})

@@ -1,0 +1,54 @@
+{% extends 'base/base.html '%}
+{% load static %}
+{% block title %}Про BookLib{% endblock %}
+
+{% block content %}
+<link rel="stylesheet" href="{% static 'about.css' %}">
+<div class="about-wrapper">
+    <h1>Про BookLib</h1>
+    <br>
+    <hr>
+    <br>
+    <div class="about-content">
+        <ul class="about-list">
+            <li class="about-list-item">
+                <h2 class="about-list-item-title">Наш графік</h2>
+                <br>
+                <p class="about-list-item-text">
+                    <b>
+                        <span>Дні: Понеділок – П’ятниця</span>
+                        <br><br>
+                        <span>Години: 09:00 – 18:00</span>
+                        <br><br>
+                        <hr>
+                    </b>
+                </p>
+            </li>
+            <li class="about-list-item">
+                <h2 class="about-list-item-title">Наявність товару</h2>
+                <br>
+                <p class="about-list-item-text">
+                    <span>Переглянути наявний товар Ви можете на нашому сайті. Під час карантину працюємо лише онлайн.</span>
+                    <br><br>
+                    <b>Завіз книг відбувається раз у тиждень, у четвер о 14:00</b>
+                </p>
+                <br><hr>
+            </li>
+            <li class="about-list-item">
+                <h2 class="about-list-item-title">Обслуговування</h2>
+                <br>
+                <p class="about-list-item-text">
+                    <span>Наші онлайн консультанти готові відповісти на будь-яке ваше питання 24/7 у наступних соціальних мережах:</span>
+                    <ul class="about-list-item-text-social">
+                        <li class="about-social-item"><b>Instagram</b></li>
+                        <li class="about-social-item"><b>Viber</b></li>
+                        <li class="about-social-item"><b>Telegram</b></li>
+                        <li class="about-social-item"><b>Facebook</b></li>
+                    </ul>
+                </p>
+                <br><hr>
+            </li>
+        </ul>
+    </div>
+</div>
+{% endblock %}
