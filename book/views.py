@@ -12,6 +12,18 @@ def listOfCategories(request):
 
     return render(request, 'listOfCategories.html', context)
 
+def bookBySlug(request, slug):
+    book = Book.objects.get(slug=slug)
+    theSameAuthorBooks = Book.objects.filter(author=book.author)
+    theSameCategoryBooks = Book.objects.all().order_by('?')[:4]
+    context = {
+        'book': book,
+        'theSameAuthorBooks': theSameAuthorBooks,
+        'theSameCategoryBooks': theSameCategoryBooks
+    }
+    
+    return render(request, 'book.html', context)
+
 def booksByCategory(request, slug):
     category  = Category.objects.get(slug=slug)
     books = Book.objects.filter(category=category)

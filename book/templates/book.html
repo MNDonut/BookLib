@@ -1,0 +1,88 @@
+{% extends 'base/base.html '%}
+{% load static %}
+{% block title %}Booklib - {{ book.title }}{% endblock %}
+
+{% block content %}
+<link rel="stylesheet" href="{% static 'book.css' %}">
+<div class="book-wrapper">
+    <h1 class="book-h1">{{ book.title }}</h1>
+    <br>
+    <div class="book-content">
+        <img class="book-img" src="{{ book.image.url }}" alt="">
+        <div class="book-info">
+            <p class="book-info-line">
+                <span>Автор: </span>
+                <a class="field-value"href="{% url 'author' book.author.slug %}">{{ book.author }}</a>
+            </p>
+            <br><hr><br>
+            <p class="book-info-line">
+                <span>Видавництво: </span>
+                <a class="field-value" href="{% url 'edition' book.edition.slug %}">{{ book.edition }}</a>
+            </p>
+            <br><hr><br>
+            <p class="book-info-line">
+                <span>ISBN:</span>
+                <span class="field-value">{{ book.ISBN }}</span>
+            </p>
+            <br><hr><br>
+            <p class="book-info-line">
+                <span>Категорія: </span>
+                <a class="field-value" href="{% url 'booksByCategory' book.category.slug %}">{{ book.category }}</a>
+            </p>
+            <br><hr><br>
+            <p class="book-info-line">
+                <span>Кількість сторінок:</span> 
+                <span class="field-value">{{ book.numberOfPages }}</span>
+            </p>
+            <br><hr><br>
+            <p class="book-info-line">
+                <span>Тип обкладинки:</span> 
+                <!-- display CHOICE second value -->
+                <span class="field-value">{{ book.get_coverType_display }}</span>
+            </p>
+            <br><hr><br>
+            <p class="book-info-line">
+                <span>Папір:</span> 
+                <!-- display CHOICE second value -->
+                <span class="field-value">{{ book.get_paperType_display }}</span>
+            </p>
+            <br><hr><br>
+            <p class="book-info-line">
+                <span>Рік:</span> 
+                <span class="field-value">{{ book.publicationYear }}</span>
+            </p>
+            <br><hr><br>
+            {% if book.isAvailable %}
+            <p class="available">
+                <span>У наявності</span>
+                <br>
+                <div>
+                    <span class="book-price">{{ book.price }} <b>UAH</b></span>
+                    <a class="isAvailableButton" href="#">У кошик</a>
+                    <a class="isAvailableButton" href="#">В улюблені</a>
+                </div>
+            </p>
+            {% else %}
+            <p class="not-available">
+                <span>Немає в наявності</span>
+                <br>
+                <div>
+                    <span class="book-price">{{ book.price }} UAH</span>
+                    <a class="isAvailableButton" href="#">В улюблені</a>
+                </div>
+            </p>
+            {% endif %}
+        </div>
+        <div class="delivery">
+            delivery
+        </div>
+    </div>
+    <div class="book-description">
+        <h2>Про книгу</h2><br>
+        <p class="book-description-paragraph">{{ book.description }}</p>
+    </div>
+    <br>
+    <h2>Інші книги автора</h2>
+    <br>
+</div>
+{% endblock %}

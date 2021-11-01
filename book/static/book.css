@@ -1,0 +1,63 @@
+* {
+    font-family: 'Balsamiq Sans', cursive;
+}
+
+hr {
+    border: 1px solid gray;
+}
+
+.book-img, .book-info {
+    z-index: 1;
+}
+
+.book-wrapper {
+    padding: 20px;
+}
+
+.book-content {
+    column-gap: 40px;
+    display: grid;
+    grid-template-columns: 1fr 2fr 2fr;
+}
+
+.book-img {
+    width: 100%;
+    height: auto;
+}
+
+.book-info {
+    padding: 20px 0;
+}
+
+.book-info-line {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+}
+
+.field-value {
+    text-align: right;
+}
+
+.available, .not-available {
+    font-size: 20px;
+    display: grid;
+} 
+
+.available {
+    color: rgb(19, 185, 19);
+}
+
+.not-available {
+    color: crimson;
+}
+
+.isAvailableButton {
+    font-size: 20px;
+    color: white;
+    padding: 5px 10px;
+    background: var(--menu);
+}
+
+.book-price {
+    font-size: 22px;
+}
