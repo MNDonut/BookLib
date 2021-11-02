@@ -12,12 +12,12 @@
         <div class="book-info">
             <p class="book-info-line">
                 <span>Автор: </span>
-                <a class="field-value"href="{% url 'authorBooksBySlug' book.author.slug %}">{{ book.author }}</a>
+                <a class="field-value field-link"href="{% url 'authorBooksBySlug' book.author.slug %}">{{ book.author }}</a>
             </p>
             <br><hr><br>
             <p class="book-info-line">
                 <span>Видавництво: </span>
-                <a class="field-value" href="{% url 'edition' book.edition.slug %}">{{ book.edition }}</a>
+                <a class="field-value field-link" href="{% url 'edition' book.edition.slug %}">{{ book.edition }}</a>
             </p>
             <br><hr><br>
             <p class="book-info-line">
@@ -27,7 +27,7 @@
             <br><hr><br>
             <p class="book-info-line">
                 <span>Категорія: </span>
-                <a class="field-value" href="{% url 'bookByCategorySlug' book.category.slug %}">{{ book.category }}</a>
+                <a class="field-value field-link" href="{% url 'bookByCategorySlug' book.category.slug %}">{{ book.category }}</a>
             </p>
             <br><hr><br>
             <p class="book-info-line">
@@ -56,17 +56,19 @@
             <p class="available">
                 <span>У наявності</span>
                 <br>
-                <div>
+                <div class="price-buy-favorite-available">
                     <span class="book-price">{{ book.price }} <b>UAH</b></span>
-                    <a class="isAvailableButton" href="#">У кошик</a>
-                    <a class="isAvailableButton" href="#">В улюблені</a>
+                    <div class="price-buy-favorite-inner-div">
+                        <a class="isAvailableButton" href="#">В улюблені</a>
+                        <a class="isAvailableButton" href="#">У кошик</a>
+                    </div>
                 </div>
             </p>
             {% else %}
             <p class="not-available">
                 <span>Немає в наявності</span>
                 <br>
-                <div>
+                <div class="price-buy-favorite-not-available">
                     <span class="book-price">{{ book.price }} UAH</span>
                     <a class="isAvailableButton" href="#">В улюблені</a>
                 </div>
@@ -121,7 +123,7 @@
                 <div class="another-book-img-container">
                     <a href="{% url 'bookBySlug' book.slug %}"><img class="another-book-img"src="{{ book.image.url }}" alt=""></a>
                 </div>
-                <a href="{% url 'bookBySlug' book.slug %}" class="another-book-title"><span>{{ book.title }}</span></a>
+                <a href="{% url 'bookBySlug' book.slug %}" class="another-book-title"><span><b>{{ book.title }}</b></span></a>
                 <span class="another-book-price">{{ book.price}} <b>UAH</b></span>
                 {% if book.isAvailable %}
                 <a class="another-book-buy" href="#">У кошик</a>
@@ -149,7 +151,7 @@
             <div class="another-book-img-container">
                 <a href="{% url 'bookBySlug' book.slug %}"><img class="another-book-img"src="{{ book.image.url }}" alt=""></a>
             </div>
-            <a href="{% url 'bookBySlug' book.slug %}" class="another-book-title"><span>{{ book.title }}</span></a>
+            <a href="{% url 'bookBySlug' book.slug %}" class="another-book-title"><span><b>{{ book.title }}</b></span></a>
             <span class="another-book-price">{{ book.price}} <b>UAH</b></span>
             {% if book.isAvailable %}
             <a class="another-book-buy" href="#">У кошик</a>

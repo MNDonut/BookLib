@@ -42,6 +42,28 @@ a {
     text-align: right;
 }
 
+.field-link:hover {
+    text-decoration: underline;
+}
+
+.price-buy-favorite-available {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+}
+
+.price-buy-favorite-not-available {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr;
+}
+
+.price-buy-favorite-not-available a {
+    text-align: center;
+}
+
+.price-buy-favorite-inner-div {
+    text-align: right;
+}
+
 .available, .not-available {
     font-size: 20px;
     display: grid;
@@ -87,6 +109,7 @@ a {
 }
 
 .another-book-container {
+    row-gap: 20px;
     z-index: 1;
     display: grid;
     grid-template-areas: "new popular"
