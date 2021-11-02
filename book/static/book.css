@@ -6,12 +6,16 @@ hr {
     border: 1px solid gray;
 }
 
+a {
+    color: black;
+}
+
 .book-img, .book-info {
     z-index: 1;
 }
 
 .book-wrapper {
-    padding: 20px;
+    padding: 20px 40px;
 }
 
 .book-content {
@@ -60,4 +64,88 @@ hr {
 
 .book-price {
     font-size: 22px;
+}
+
+.delivery {
+    z-index: 1;
+    padding: 10px;
+    border-left: 2px solid gray;
+}
+
+.delivery h2 {
+    text-align: center;
+}
+
+.delivery li {
+    padding: 0 0 0 10px;
+}
+
+.other-books {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    column-gap: 30px;
+}
+
+.another-book-container {
+    z-index: 1;
+    display: grid;
+    grid-template-areas: "new popular"
+                         "img img"
+                         "title title"
+                         "price buy";
+    transition: 0.3s ease-in-out;
+}
+
+.another-book-container:hover {
+    transform: scale(1.05);
+}
+
+.another-book-new {
+    grid-area: new;
+    background: rgb(29, 218, 29);
+}
+
+.another-book-popular {
+    grid-area: popular;
+    background: crimson;
+}
+
+.another-book-new, .another-book-popular {
+    padding: 5px 0;
+    display: grid;
+    text-align: center;
+    align-items: center;
+    color: white;
+}
+
+.another-book-img-container {
+    grid-area: img;
+    z-index: 3;
+    text-align: center;
+}
+
+.another-book-img {
+    width: auto;
+    max-height: 350px;
+}
+
+.another-book-title {
+    grid-area: title;
+    font-size: 18px;
+}
+
+.another-book-price {
+    font-size: 20px;
+    grid-area: price;
+    align-self: center;
+}
+
+.another-book-buy {
+    grid-area: buy;
+    align-self: center;
+    color: white;
+    border-radius: 5px;
+    background: black;
+    text-align: center;
+    padding: 5px 0;
 }

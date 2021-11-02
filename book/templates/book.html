@@ -74,15 +74,88 @@
             {% endif %}
         </div>
         <div class="delivery">
-            delivery
+            <h2>Доставка</h2>
+            <br>
+            <p>У нас ви можете замовити доставку книг наступними способами:</p>
+            <br>
+            <ul>
+                <li>- Нова пошта<br><br></li>
+                <li>- Укрпошта<br><br></li>
+                <li>- Justin<br><br></li>
+            </ul>
+            <p> - при замовленні на суму від 300 гривень, доставка Укрпоштою безкоштовна</p>
+            <br>
+            <p> - при замовленні на суму від 500 гривень, доставка безкоштовна будь-яким зручним для вас способом</p>
+            <br>
+            <h2>Оплата</h2>
+            <br>
+            <p>Оплата можлива як на карту, так і накладним платежем.</p>
+            <p>При накладному платежі:</p>
+            <br>
+            <p> - додатково потрібно оплатити 1% від суми замовлення, але не менше 10 гривень.(Укрпошта)</p>
+            <br>
+            <p> - додатково потрібно оплатити 2% від суми замовлення + 20 гривень.(Нова пошта)</p>
         </div>
     </div>
     <div class="book-description">
         <h2>Про книгу</h2><br>
         <p class="book-description-paragraph">{{ book.description }}</p>
     </div>
+    {% if theSameAuthorBooks %}
+        <br>
+        <h1>Інші книги автора</h1>
+        <br>
+        <div class="other-books">
+            {% for book in theSameAuthorBooks %}
+            <div class="another-book-container">
+                {% if book.isNew %}
+                <div class="another-book-new">
+                    <span>Новинка</span>
+                </div>
+                {% endif %}
+                {% if book.isHot %}
+                <div class="another-book-popular">
+                    <span>Популярна</span>
+                </div>
+                {% endif %}
+                <div class="another-book-img-container">
+                    <a href="{% url 'bookBySlug' book.slug %}"><img class="another-book-img"src="{{ book.image.url }}" alt=""></a>
+                </div>
+                <a href="{% url 'bookBySlug' book.slug %}" class="another-book-title"><span>{{ book.title }}</span></a>
+                <span class="another-book-price">{{ book.price}} <b>UAH</b></span>
+                {% if book.isAvailable %}
+                <a class="another-book-buy" href="#">У кошик</a>
+                {% endif %}
+            </div>
+            {% endfor %}
+        </div>
+    {% endif %}
     <br>
-    <h2>Інші книги автора</h2>
+    <h1>Схожі книги</h1>
     <br>
+    <div class="other-books">
+        {% for book in theSameCategoryBooks %}
+        <div class="another-book-container">
+            {% if book.isNew %}
+            <div class="another-book-new">
+                <span>Новинка</span>
+            </div>
+            {% endif %}
+            {% if book.isHot %}
+            <div class="another-book-popular">
+                <span>Популярна</span>
+            </div>
+            {% endif %}
+            <div class="another-book-img-container">
+                <a href="{% url 'bookBySlug' book.slug %}"><img class="another-book-img"src="{{ book.image.url }}" alt=""></a>
+            </div>
+            <a href="{% url 'bookBySlug' book.slug %}" class="another-book-title"><span>{{ book.title }}</span></a>
+            <span class="another-book-price">{{ book.price}} <b>UAH</b></span>
+            {% if book.isAvailable %}
+            <a class="another-book-buy" href="#">У кошик</a>
+            {% endif %}
+        </div>
+        {% endfor %}
+    </div>
 </div>
 {% endblock %}

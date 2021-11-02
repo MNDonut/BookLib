@@ -14,8 +14,9 @@ def listOfCategories(request):
 
 def bookBySlug(request, slug):
     book = Book.objects.get(slug=slug)
-    theSameAuthorBooks = Book.objects.filter(author=book.author)
-    theSameCategoryBooks = Book.objects.all().order_by('?')[:4]
+    # filter and delete the same book from the queries below
+    theSameAuthorBooks = Book.objects.filter(author=book.author).exclude(slug=slug)
+    theSameCategoryBooks = Book.objects.all().order_by('?').exclude(slug=slug)[:4]
     context = {
         'book': book,
         'theSameAuthorBooks': theSameAuthorBooks,
