@@ -25,7 +25,7 @@ def bookBySlug(request, slug):
     
     return render(request, 'book.html', context)
 
-def booksByCategory(request, slug):
+def bookByCategorySlug(request, slug):
     category  = Category.objects.get(slug=slug)
     books = Book.objects.filter(category=category)
     context = {

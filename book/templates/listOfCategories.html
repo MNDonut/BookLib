@@ -10,7 +10,7 @@
     <div class="categories-list-wrapper">
         {% for category in categories %}
         <div class="category-block">
-            <a class="category" href="{% url 'booksByCategory' category.slug %}">
+            <a class="category" href="{% url 'bookByCategorySlug' category.slug %}">
                 <img class="category-img" src="{{category.image.url}}" alt="">
                 <div class="category-title">{{ category }}</div>
             </a>

@@ -3,7 +3,7 @@ from django.shortcuts import render
 from book.models import Book
 from .models import Author
 
-def author(request, slug):
+def authorBooksBySlug(request, slug):
     author = Author.objects.get(slug=slug)
     books = Book.objects.filter(author__slug=slug)
     context = {

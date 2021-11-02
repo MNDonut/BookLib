@@ -9,7 +9,7 @@
     <br>
     <div class="authors-list-wrapper">
         {% for author in authors %}
-            <a class="author" href="{% url 'author' author.slug %}">{{ author }}</a>
+            <a class="author" href="{% url 'authorBooksBySlug' author.slug %}">{{ author }}</a>
         {% endfor %}
     </div>
 </div>

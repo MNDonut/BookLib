@@ -26,7 +26,6 @@
     grid-template-areas: "new popular"
                          "img img"
                          "title title"
-                         "author author"
                          "price buy";
     row-gap: 20px;
     padding: 0 0 10px;

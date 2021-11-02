@@ -12,7 +12,7 @@
         <div class="book-info">
             <p class="book-info-line">
                 <span>Автор: </span>
-                <a class="field-value"href="{% url 'author' book.author.slug %}">{{ book.author }}</a>
+                <a class="field-value"href="{% url 'authorBooksBySlug' book.author.slug %}">{{ book.author }}</a>
             </p>
             <br><hr><br>
             <p class="book-info-line">
@@ -27,7 +27,7 @@
             <br><hr><br>
             <p class="book-info-line">
                 <span>Категорія: </span>
-                <a class="field-value" href="{% url 'booksByCategory' book.category.slug %}">{{ book.category }}</a>
+                <a class="field-value" href="{% url 'bookByCategorySlug' book.category.slug %}">{{ book.category }}</a>
             </p>
             <br><hr><br>
             <p class="book-info-line">

@@ -21,10 +21,10 @@
             </div>
             {% endif %}
             <div class="book-img-container">
-                <a href="#"><img src="{{ book.image.url }}" class="book-img"></a>
+                <a href="{% url 'bookBySlug' book.slug %}"><img src="{{ book.image.url }}" class="book-img"></a>
             </div>
-            <a href="#" class="book-title"><b>{{ book.title }}</b></a>
-            <a href="{% url 'author' book.author.slug %}" class="book-author">{{ book.author }}</a>
+            <a href="{% url 'bookBySlug' book.slug %}" class="book-title"><b>{{ book.title }}</b></a>
+            <a href="{% url 'authorBooksBySlug' book.author.slug %}" class="book-author">{{ book.author }}</a>
             <a class="book-price">{{ book.price }}<b> UAH</b></a>
             {% if book.isAvailable %}
                 <a href="#" class="book-buy">У кошик</a>
