@@ -6,9 +6,11 @@ from django.db.models import Count
 def index(request):
     top3Editions = Edition.objects.annotate(nb_books=Count('book')).order_by('-nb_books')[:3]
     random4Categories = Category.objects.all().order_by('?')[:4]
+    recentlyAddedBooks = Book.objects.filter(isNew=True).order_by('?')[:5]
     context = {
         'top3Editions': top3Editions,
-        'random4Categories': random4Categories
+        'random4Categories': random4Categories,
+        'recentlyAddedBooks': recentlyAddedBooks
     }
     return render(request, 'index.html', context)
 

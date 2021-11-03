@@ -16,7 +16,7 @@
         </div>
         <a class="allEditionsButton" href="{% url 'listOfEditions' %}">Усі видавництва</a>
     </div>
-    <h2>Можливо зацікавлять книги в наступних категоріях</h2>
+    <h2>Можливо вас зацікавлять книги в наступних категоріях</h2>
     <div class="random-categories-container">
         <div class="random-categories-loop">
             {% for category in random4Categories %}
@@ -27,6 +27,35 @@
             {% endfor %}
         </div>
         <a class="allEditionsButton" href="{% url 'listOfCategories' %}">Усі категорії</a>
+    </div>
+    <h2>Новинки</h2>
+    <br>
+    <div class="new-books-container">
+        <div class="new-books-loop">
+            {% for book in recentlyAddedBooks %}
+                <div class="new-book">
+                    {% if book.isNew %}
+                    <div class="book-new">
+                        <span>Новинка</span>
+                    </div>
+                    {% endif %}
+                    {% if book.isHot %}
+                    <div class="book-popular">
+                        <span>Популярна</span>
+                    </div>
+                    {% endif %}
+                    <a href="{% url 'bookBySlug' book.slug %}" class="new-book-img">
+                        <img src="{{ book.image.url }}" alt="">
+                    </a>
+                    <a class="new-book-title" href="{% url 'bookBySlug' book.slug %}"><b>{{ book.title }}</b></a>
+                    <a class="new-book-author" href="{% url 'authorBooksBySlug' book.author.slug %}">{{ book.author }}</a>
+                    <p class="new-book-price">{{ book.price }} <b>UAH</b></p>
+                    {% if book.isAvailable %}
+                        <a href="#" class="buy">У кошик</a>
+                    {% endif %}
+                </div>
+            {% endfor %}
+        </div>
     </div>
 </div>
 {% endblock %}

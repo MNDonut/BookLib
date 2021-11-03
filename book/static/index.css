@@ -12,7 +12,7 @@
     text-decoration: underline;
 }
 
-.top-editions-container, .top-edition, .allEditionsButton {
+.top-edition, .allEditionsButton {
     border-radius: 5px;
 }
 
@@ -59,7 +59,6 @@
     grid-template-columns: repeat(4, 1fr);
     column-gap: 40px;
     z-index: 1;
-
 }
 
 .random-category {
@@ -85,4 +84,79 @@
     display: flex;
     justify-self: center;
     position: absolute;
+}
+
+.new-books-loop {
+    display: grid;
+    column-gap: 20px;
+    grid-template-columns: repeat(5, 1fr);
+}
+
+.new-book {
+    align-items: center;
+    z-index: 1;
+    display: grid;
+    row-gap: 20px;
+    transition: 0.3s ease-in-out;
+    grid-template-areas: "new popular"
+                         "img img"
+                         "title title"
+                         "author author"
+                         "price buy";
+}
+
+.new-book:hover {
+    transform: scale(1.05);
+}
+
+.book-new {
+    grid-area: new;
+    background: rgb(29, 218, 29);
+}
+
+.book-popular {
+    grid-area: popular;
+    background: crimson;
+}
+
+.book-new, .book-popular {
+    padding: 5px 0;
+    display: grid;
+    text-align: center;
+    align-items: center;
+    color: white;
+}
+
+.new-book-img {
+    text-align: center;
+    grid-area: img;
+}
+
+.new-book-img img {
+    width: auto;
+    max-height: 320px;
+}
+
+.new-book-title {
+    grid-area: title;
+    color: black;
+}
+
+.new-book-author {
+    color: gray;
+    grid-area: author;
+}
+
+.new-book-price {
+    grid-area: price;
+}
+
+.buy {
+    grid-area: buy;
+    align-self: center;
+    color: white;
+    border-radius: 5px;
+    background: black;
+    text-align: center;
+    padding: 5px 0;
 }
