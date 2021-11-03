@@ -1,0 +1,32 @@
+{% extends 'base/base.html '%}
+{% load static %}
+{% block title %}Booklib{% endblock %}
+
+{% block content %}
+<link rel="stylesheet" href="{% static 'index.css' %}">
+<div class="index-wrapper">
+    <h2>Топ 3 видавництва за кількістю книг</h2>
+    <div class="top-editions-container">
+        <div class="top-editions-loop">
+            {% for edition in top3Editions %}
+            <a class="top-edition" href="{% url 'edition' edition.slug %}">
+                <span>{{ edition.title|title }}</span>
+            </a>
+            {% endfor %}
+        </div>
+        <a class="allEditionsButton" href="{% url 'listOfEditions' %}">Усі видавництва</a>
+    </div>
+    <h2>Можливо зацікавлять книги в наступних категоріях</h2>
+    <div class="random-categories-container">
+        <div class="random-categories-loop">
+            {% for category in random4Categories %}
+            <a class="random-category" href="{% url 'bookByCategorySlug' category.slug %}">
+                <img class="random-category-img" src="{{category.image.url}}" alt="">
+                <div class="random-category-title">{{ category }}</div>
+            </a>
+            {% endfor %}
+        </div>
+        <a class="allEditionsButton" href="{% url 'listOfCategories' %}">Усі категорії</a>
+    </div>
+</div>
+{% endblock %}

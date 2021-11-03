@@ -1,8 +1,16 @@
 from django.shortcuts import render
+from edition.models import Edition
 from .models import Book, Category
+from django.db.models import Count
 
 def index(request):
-    pass
+    top3Editions = Edition.objects.annotate(nb_books=Count('book')).order_by('-nb_books')[:3]
+    random4Categories = Category.objects.all().order_by('?')[:4]
+    context = {
+        'top3Editions': top3Editions,
+        'random4Categories': random4Categories
+    }
+    return render(request, 'index.html', context)
 
 def listOfCategories(request):
     categories = Category.objects.all().order_by('title')
