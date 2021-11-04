@@ -119,6 +119,18 @@ a {
     transition: 0.3s ease-in-out;
 }
 
+.other-book-container {
+    row-gap: 20px;
+    z-index: 1;
+    display: grid;
+    grid-template-areas: "new popular"
+                         "img img"
+                         "title title"
+                         "author author"
+                         "price buy";
+    transition: 0.3s ease-in-out;
+}
+
 .another-book-container:hover {
     transform: scale(1.05);
 }
@@ -155,6 +167,11 @@ a {
 .another-book-title {
     grid-area: title;
     font-size: 18px;
+}
+
+.another-book-author {
+    color: gray;
+    grid-area: author;
 }
 
 .another-book-price {

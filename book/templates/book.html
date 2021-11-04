@@ -137,7 +137,7 @@
     <br>
     <div class="other-books">
         {% for book in theSameCategoryBooks %}
-        <div class="another-book-container">
+        <div class="other-book-container">
             {% if book.isNew %}
             <div class="another-book-new">
                 <span>Новинка</span>
@@ -152,6 +152,7 @@
                 <a href="{% url 'bookBySlug' book.slug %}"><img class="another-book-img"src="{{ book.image.url }}" alt=""></a>
             </div>
             <a href="{% url 'bookBySlug' book.slug %}" class="another-book-title"><span><b>{{ book.title }}</b></span></a>
+            <a href="{% url 'authorBooksBySlug' book.author.slug %}" class="another-book-author">{{ book.author }}</a>
             <span class="another-book-price">{{ book.price}} <b>UAH</b></span>
             {% if book.isAvailable %}
             <a class="another-book-buy" href="#">У кошик</a>
