@@ -85,6 +85,21 @@
     position: absolute;
 }
 
+.title {
+    display: flex;
+    align-items: center;
+    height: 50px;
+    justify-content: center;
+    color: white;
+    width: 100%;
+    background: var(--menu);
+    font-family: 'Balsamiq Sans', cursive;
+}
+
+.title h2 {
+    z-index: 1;
+}
+
 .new-books-loop {
     column-gap: 20px;
     grid-template-columns: repeat(5, 1fr);
