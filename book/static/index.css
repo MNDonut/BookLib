@@ -1,4 +1,5 @@
-.top-editions-container, .top-editions-loop, .random-category {
+.top-editions-container, .top-editions-loop, .random-category, .random-categories-container,
+.random-categories-loop, .new-book, .new-books-loop, .book-new, .book-popular {
     display: grid;
     z-index: 1;
 }
@@ -50,12 +51,10 @@
 
 .random-categories-container {
     padding: 20px 0 0;
-    display: grid;
     grid-template-rows: 2fr 1fr;
 }
 
 .random-categories-loop {
-    display: grid;
     grid-template-columns: repeat(4, 1fr);
     column-gap: 40px;
     z-index: 1;
@@ -87,7 +86,6 @@
 }
 
 .new-books-loop {
-    display: grid;
     column-gap: 20px;
     grid-template-columns: repeat(5, 1fr);
 }
@@ -95,7 +93,6 @@
 .new-book {
     align-items: center;
     z-index: 1;
-    display: grid;
     row-gap: 20px;
     transition: 0.3s ease-in-out;
     grid-template-areas: "new popular"
@@ -121,7 +118,6 @@
 
 .book-new, .book-popular {
     padding: 5px 0;
-    display: grid;
     text-align: center;
     align-items: center;
     color: white;

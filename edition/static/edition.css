@@ -12,6 +12,7 @@
 
 .books-list-wrapper {
     row-gap: 20px;
+    column-gap: 20px;
     display: grid;
     grid-template-columns: repeat(4, 1fr);
 }
