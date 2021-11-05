@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from bookmark.models import BookMark
 from edition.models import Edition
 from .models import Book, Category
 from django.db.models import Count
@@ -27,10 +28,12 @@ def bookBySlug(request, slug):
     # filter and delete the same book from the queries below
     theSameAuthorBooks = Book.objects.filter(author=book.author).order_by('?').exclude(slug=slug)
     theSameCategoryBooks = Book.objects.all().order_by('?').exclude(slug=slug)[:4]
+    isMarked = BookMark.objects.filter(user=request.user, book=book).exists()
     context = {
         'book': book,
         'theSameAuthorBooks': theSameAuthorBooks,
-        'theSameCategoryBooks': theSameCategoryBooks
+        'theSameCategoryBooks': theSameCategoryBooks,
+        'isMarked': isMarked
     }
     
     return render(request, 'book.html', context)

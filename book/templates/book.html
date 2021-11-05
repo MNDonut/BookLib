@@ -59,7 +59,13 @@
                 <div class="price-buy-favorite-available">
                     <span class="book-price">{{ book.price }} <b>UAH</b></span>
                     <div class="price-buy-favorite-inner-div">
-                        <a class="isAvailableButton" href="#">В улюблені</a>
+                        <a class="isAvailableButton bookMarkmargin-right" href="{% url 'addBookmark' book.slug %}">
+                            {% if isMarked %}
+                            <span>В улюблених</span>
+                            {% else %}
+                            <span>В улюблені</span>
+                            {% endif %}
+                        </a>
                         <a class="isAvailableButton" href="#">У кошик</a>
                     </div>
                 </div>
@@ -70,7 +76,13 @@
                 <br>
                 <div class="price-buy-favorite-not-available">
                     <span class="book-price">{{ book.price }} UAH</span>
-                    <a class="isAvailableButton" href="#">В улюблені</a>
+                    <a class="isAvailableButton" href="{% url 'addBookmark' book.slug %}">
+                        {% if isMarked %}
+                        <span>В улюблених</span>
+                        {% else %}
+                        <span>Додати в улюблені</span>
+                        {% endif %}
+                    </a>
                 </div>
             </p>
             {% endif %}

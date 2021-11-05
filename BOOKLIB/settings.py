@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'author',
     'edition',
     'book',
+    'bookmark',
     'fontawesome_free'
 ]
 

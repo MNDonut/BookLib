@@ -1,0 +1,10 @@
+{% extends 'base/base.html' %}
+{% load static %}
+{% block title %}Улюблені{% endblock %}
+
+{% block content %}
+<link rel="stylesheet" href="{% static 'bookmarks.css' %}">
+{% for book in bookmarks %}
+{{ book }}
+{% endfor %}
+{% endblock %}

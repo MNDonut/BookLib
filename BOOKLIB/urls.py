@@ -23,7 +23,8 @@ urlpatterns = [
     path('', include('book.urls')),
     path('account/', include('account.urls')),
     path('authors/', include('author.urls')),
-    path('editions/', include('edition.urls'))
+    path('editions/', include('edition.urls')),
+    path('bookmarks/', include('bookmark.urls'))
 ]
 
 if settings.DEBUG:

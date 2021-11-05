@@ -84,6 +84,10 @@ a {
     background: var(--menu);
 }
 
+.bookMarkmargin-right {
+    margin-right: 10px;
+}
+
 .book-price {
     font-size: 22px;
 }
@@ -131,7 +135,7 @@ a {
     transition: 0.3s ease-in-out;
 }
 
-.another-book-container:hover {
+.another-book-container:hover, .other-book-container:hover {
     transform: scale(1.05);
 }
 
