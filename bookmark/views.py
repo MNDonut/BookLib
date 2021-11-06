@@ -21,3 +21,10 @@ def addBookmark(request, slug):
     newBookMark = BookMark.objects.create(user=request.user, book=book)
     newBookMark.save()
     return HttpResponseRedirect(request.META.get("HTTP_REFERER")) 
+
+def removeBookmark(request, slug):
+    book = Book.objects.get(slug=slug)
+    bookMark = BookMark.objects.get(user=request.user, book=book)
+    bookMark.delete()
+
+    return HttpResponseRedirect(request.META.get("HTTP_REFERER")) 

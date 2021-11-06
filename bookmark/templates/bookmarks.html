@@ -4,7 +4,22 @@
 
 {% block content %}
 <link rel="stylesheet" href="{% static 'bookmarks.css' %}">
-{% for book in bookmarks %}
-{{ book }}
-{% endfor %}
+<h1>Улюблені книги</h1>
+<div class="bookmarks-wrapper">
+    <div class="bookmarks-loop">
+        {% for bookmark in bookmarks %}
+        <div class="bookmark">
+            <a class="bookmark-img-container" href="{% url 'bookBySlug' bookmark.book.slug %}">
+                <img src="{{ bookmark.book.image.url }}" alt="">
+            </a>
+            <p>
+                <a href="{% url 'bookBySlug' bookmark.book.slug %}" class="bookmark-title">{{ bookmark.book.title }}</a>
+            </p>
+            <p class="bookmark-price">{{ bookmark.book.price }} <b>UAH</b></p>
+            <a href="#" class="bookmark-in-cart">У кошик</a>
+            <a href="{% url 'removeBookmark' bookmark.book.slug %}"><i class="fas fa-times fa-2x"></i></a>
+        </div>
+        {% endfor %}
+    </div>
+</div>
 {% endblock %}
