@@ -6,8 +6,9 @@ def register(request):
         form = RegistrationForm(request.POST)
         if form.is_valid():
             form.save()
-            # change to index
-            return render(request, 'registration.html', {})
+            # redirect uses 'login' url, not just render page
+            # it'll render CustomLoginForm and you don't have to give it as a parameter in 'render
+            return redirect('login')
         else:
             return render(request, 'registration.html', {'form': form})
 

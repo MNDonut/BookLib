@@ -13,6 +13,7 @@ def index(request):
         'random4Categories': random4Categories,
         'recentlyAddedBooks': recentlyAddedBooks
     }
+    
     return render(request, 'index.html', context)
 
 def listOfCategories(request):

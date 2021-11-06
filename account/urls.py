@@ -8,6 +8,5 @@ urlpatterns = [
     # path('', views.profile, name='profile'),
     path('register/', views.register, name='register'),
     path('login/', LoginView.as_view(template_name='login.html', authentication_form=CustomLoginForm), name='login'),
-                            # !!! change to index.html
-    path('logout/', LogoutView.as_view(template_name='login.html'), name='logout'),
+    path('logout/', LogoutView.as_view(), name='logout'),
 ]
