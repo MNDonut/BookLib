@@ -6,6 +6,7 @@
 <link rel="stylesheet" href="{% static 'bookmarks.css' %}">
 <h1>Улюблені книги</h1>
 <div class="bookmarks-wrapper">
+    {% if bookmarks %}
     <div class="bookmarks-loop">
         {% for bookmark in bookmarks %}
         <div class="bookmark">
@@ -21,5 +22,8 @@
         </div>
         {% endfor %}
     </div>
+    {% else %}
+    <h2 style="text-align: center;">У вас немає улюблених книг, але це можна виправити в будь-який момент ;)</h2>
+    {% endif %}
 </div>
 {% endblock %}
