@@ -55,3 +55,6 @@ def about(request):
 
 def delivery(request):
     return render(request, 'delivery.html')
+
+def refund(request):
+    return render(request, 'refund.html')
