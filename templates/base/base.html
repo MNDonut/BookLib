@@ -29,7 +29,7 @@
                 <ul class="info-list">
                     <li><a href="{% url 'listOfAuthors' %}">Автори</a></li>
                     <li><a href="{% url 'listOfEditions' %}">Видавництва</a></li>
-                    <li><a href="#">Доставка та оплата</a></li>
+                    <li><a href="{% url 'delivery' %}">Доставка та оплата</a></li>
                     <li><a href="#">Обмін та повернення</a></li>
                     <li><a href="{% url 'about' %}">Про BookLib</a></li>
                     <li><a href="#">Контакти</a></li>
@@ -81,7 +81,7 @@
             <ul class="footer-info-list">
                 <li><a href="{% url 'about' %}">Про BookLib</a></li>
                 <li><a href="#">Обмін та повернення</a></li>
-                <li><a href="#">Доставка та оплата</a></li>
+                <li><a href="{% url 'delivery' %}">Доставка та оплата</a></li>
                 <li><a href="{% url 'listOfAuthors' %}">Автори</a></li>
                 <li><a href="{% url 'listOfEditions' %}">Видавництва</a></li>
             </ul>

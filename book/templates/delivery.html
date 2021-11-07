@@ -1,0 +1,36 @@
+{% extends 'base/base.html '%}
+{% load static %}
+{% block title %}Доставка на оплата{% endblock %}
+
+{% block content %}
+<link rel="stylesheet" href="{% static 'delivery.css' %}">
+<div class="delivery-wrapper">
+    <h1>Доставка</h1>
+    <br>
+    <hr>
+    <br>
+    <div class="delivery-content">
+        <h3>У нас ви можете замовити доставку книг наступними способами:</h3>
+        <ul>
+            <li class="delivery-list-item">- Нова пошта</li>
+            <li class="delivery-list-item">- Укрпошта</li>
+            <li class="delivery-list-item">- Justin</li>
+            <li class="delivery-list-item">- при замовленні на суму від <b>300 гривень</b>, доставка <b>Укрпоштою</b> безкоштовна.</li>
+            <li class="delivery-list-item">- при замовленні на суму від <b>500 гривень</b>, доставка безкоштовна <b>будь-яким</b> зручним для вас способом.</li>
+        </ul>
+    </div>
+    <br>
+    <h1>Оплата</h1>
+    <br>
+    <hr>
+    <br>
+    <div class="delivery-content">
+        <h3>Оплата можлива як на карту, так і накладним платежем.</h3><br>
+        <h3>При накладному платежі:</h3>
+        <ul>
+            <li class="delivery-list-item">- додатково потрібно оплатити <b>1%</b> від суми замовлення, <b>але не менше 10 гривень</b>.(<b>Укрпошта</b>)</li>
+            <li class="delivery-list-item">- додатково потрібно оплатити <b>2%</b> від суми замовлення <b>+ 20 гривень</b>.(<b>Нова пошта</b>)</li>
+        </ul>
+    </div>
+</div>
+{% endblock %}

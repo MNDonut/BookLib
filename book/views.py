@@ -51,4 +51,7 @@ def bookByCategorySlug(request, slug):
     return render(request, 'booksByCategory.html', context)
 
 def about(request):
-    return render(request, 'about.html', {})
+    return render(request, 'about.html')
+
+def delivery(request):
+    return render(request, 'delivery.html')
