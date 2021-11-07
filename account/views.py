@@ -1,5 +1,7 @@
 from django.shortcuts import redirect, render
 from .forms import RegistrationForm
+from django.contrib.auth import logout
+from django.http import HttpResponseRedirect
 
 def register(request):
     if request.method == "POST":
@@ -17,3 +19,7 @@ def register(request):
         'form': form
     }
     return render(request, 'registration.html', context)
+
+def logUserOut(request):
+    logout(request)
+    return HttpResponseRedirect(request.META.get("HTTP_REFERER")) 
