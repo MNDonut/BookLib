@@ -1,0 +1,28 @@
+{% extends 'base/base.html' %}
+{% load static %}
+{% block title %}Корзина{% endblock %}
+
+{% block content %}
+<link rel="stylesheet" href="{% static 'cart.css' %}">
+<h1>Корзина</h1>
+<div class="cart-wrapper">
+    {% if items %}
+    <div class="cart-loop">
+        {% for cartItem in items %}
+        <div class="cartItem">
+            <a class="cartItem-img-container" href="{% url 'bookBySlug' cartItem.book.slug %}">
+                <img src="{{ cartItem.book.image.url }}" alt="">
+            </a>
+            <p>
+                <a href="{% url 'bookBySlug' cartItem.book.slug %}" class="cartItem-title">{{ cartItem.book.title }}</a>
+            </p>
+            <p class="cartItem-price">{{ cartItem.book.price }} <b>UAH</b></p>
+            <a href="{% url 'removeCartItem' cartItem.book.slug %}"><i class="fas fa-times fa-2x"></i></a>
+        </div>
+        {% endfor %}
+    </div>
+    {% else %}
+    <h2 style="text-align: center;">Корзина порожня, але це можна виправити в будь-який момент ;)</h2>
+    {% endif %}
+</div>
+{% endblock %}

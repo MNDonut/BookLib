@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from bookmark.models import BookMark
+from cart.models import CartItem
 from edition.models import Edition
 from .models import Book, Category
 from django.db.models import Count
@@ -33,10 +34,14 @@ def bookBySlug(request, slug):
         'book': book,
         'theSameAuthorBooks': theSameAuthorBooks,
         'theSameCategoryBooks': theSameCategoryBooks,
+        'isMarked': False,
+        'inCart': False
     }
     if request.user.is_authenticated:
         isMarked = BookMark.objects.filter(user=request.user, book=book).exists()  
+        inCart = CartItem.objects.filter(user=request.user, book=book).exists()
         context['isMarked'] = isMarked  
+        context['inCart'] = inCart
     
     return render(request, 'book.html', context)
 

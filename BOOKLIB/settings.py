@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'edition',
     'book',
     'bookmark',
+    'cart',
     'fontawesome_free'
 ]
 

@@ -60,13 +60,19 @@
                     <span class="book-price">{{ book.price }} <b>UAH</b></span>
                     <div class="price-buy-favorite-inner-div">
                         <a class="isAvailableButton bookMarkmargin-right" href="{% url 'addBookmark' book.slug %}">
-                            {% if user.is_authenticated and isMarked %}
+                            {% if isMarked %}
                             <span>В улюблених</span>
                             {% else %}
                             <span>В улюблені</span>
                             {% endif %}
                         </a>
-                        <a class="isAvailableButton" href="#">У кошик</a>
+                        <a class="isAvailableButton" href="{% url 'addCartItem' book.slug %}">
+                            {% if inCart %}
+                            <span>У кошику</span>
+                            {% else %}
+                            <span>У кошик</span>
+                            {% endif %}
+                        </a>
                     </div>
                 </div>
             </p>
@@ -138,7 +144,7 @@
                 <a href="{% url 'bookBySlug' book.slug %}" class="another-book-title"><span><b>{{ book.title }}</b></span></a>
                 <span class="another-book-price">{{ book.price}} <b>UAH</b></span>
                 {% if book.isAvailable %}
-                <a class="another-book-buy" href="#">У кошик</a>
+                <a class="another-book-buy" href="{% url 'addCartItem' book.slug %}">У кошик</a>
                 {% endif %}
             </div>
             {% endfor %}
@@ -167,7 +173,7 @@
             <a href="{% url 'authorBooksBySlug' book.author.slug %}" class="another-book-author">{{ book.author }}</a>
             <span class="another-book-price">{{ book.price}} <b>UAH</b></span>
             {% if book.isAvailable %}
-            <a class="another-book-buy" href="#">У кошик</a>
+            <a class="another-book-buy" href="{% url 'addCartItem' book.slug %}">У кошик</a>
             {% endif %}
         </div>
         {% endfor %}

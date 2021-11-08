@@ -1,0 +1,72 @@
+body {
+    font-family: 'Balsamiq Sans', cursive;
+}
+
+h1 {
+    padding: 10px 0;
+    text-align: center;
+}
+
+.cart-wrapper {
+    padding: 0 10%;
+}
+
+.cart-loop {
+    padding: 20px 0;
+    border-top: 2px solid var(--menu);
+    border-left: 2px solid var(--menu);
+    border-right: 2px solid var(--menu);
+    row-gap: 20px;
+    display: grid;
+    overflow: hidden;
+}
+
+.cart-loop * {
+    z-index: 1;
+}
+
+.cartItem {
+    text-align: center;
+    align-items: center;
+    display: grid;
+    grid-template-columns: 1fr 3fr 1fr 0.5fr;
+    transition: 0.3s ease-in-out;
+}
+
+.cartItem:hover {
+    transform: scale(1.02);
+}
+
+.cartItem-img-container {
+    display: flex;
+    justify-content: center;
+}
+
+.cartItem-img-container img {
+    width: auto;
+    max-height: 200px;
+}
+
+.cartItem-title {
+    color: black;
+    font-size: 20px;
+}
+
+.cartItem-title:hover, .bookmark-buy:hover {
+    text-decoration: underline;
+}
+
+.cartItem-price {
+    font-size: 18px;
+}
+
+.fa-times {
+    color: crimson;
+    transition: 0.3s ease-in-out;
+}
+
+.fa-times:hover {
+    color: white;
+    background: crimson;
+    padding: 10px 15px;
+}

@@ -24,7 +24,8 @@ urlpatterns = [
     path('account/', include('account.urls')),
     path('authors/', include('author.urls')),
     path('editions/', include('edition.urls')),
-    path('bookmarks/', include('bookmark.urls'))
+    path('bookmarks/', include('bookmark.urls')),
+    path('cart/', include('cart.urls'))
 ]
 
 if settings.DEBUG:
