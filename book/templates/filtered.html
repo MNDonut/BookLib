@@ -1,0 +1,36 @@
+{% extends 'base/base.html '%}
+{% load static %}
+{% block title %}Пошук книг{% endblock %}
+
+{% block content %}
+<link rel="stylesheet" href="{% static 'filtered.css' %}">
+<div class="books-wrapper">
+    <h1 class="books-h1">Пошук книг за запитом: "{{ searchText }}"</h1>
+    <br>
+    <div class="books-list-wrapper">
+        {% for book in filteredBooks %}
+        <div class="book">
+            {% if book.isNew %}
+            <div class="book-new">
+                <span>Новинка</span>
+            </div>
+            {% endif %}
+            {% if book.isHot %}
+            <div class="book-popular">
+                <span>Популярна</span>
+            </div>
+            {% endif %}
+            <div class="book-img-container">
+                <a href="{% url 'bookBySlug' book.slug %}"><img src="{{ book.image.url }}" class="book-img"></a>
+            </div>
+            <a href="{% url 'bookBySlug' book.slug %}" class="book-title"><b>{{ book.title }}</b></a>
+            <a href="{% url 'authorBooksBySlug' book.author.slug %}" class="book-author">{{ book.author }}</a>
+            <a class="book-price">{{ book.price }}<b> UAH</b></a>
+            {% if book.isAvailable %}
+                <a href="{% url 'addCartItem' book.slug %}" class="book-buy">У кошик</a>
+            {% endif %}
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

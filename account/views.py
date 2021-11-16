@@ -23,3 +23,10 @@ def register(request):
 def logUserOut(request):
     logout(request)
     return HttpResponseRedirect(request.META.get("HTTP_REFERER")) 
+
+def profile(request):
+    context = {
+
+    }
+    
+    return render(request, 'profile.html', context)

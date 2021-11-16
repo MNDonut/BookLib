@@ -6,6 +6,17 @@ from .models import Book, Category
 from django.db.models import Count
 
 def index(request):
+    if request.GET.get('search', None) is not None:
+        search_query = request.GET.get('search', None)
+        # searching with ignoring case-sensitive
+        filteredBooks = Book.objects.filter(title__icontains = search_query)
+        context = {
+            'filteredBooks': filteredBooks,
+            'searchText': search_query
+        }
+
+        return render(request, 'filtered.html', context)
+
     top3Editions = Edition.objects.annotate(nb_books=Count('book')).order_by('-nb_books')[:3]
     random4Categories = Category.objects.all().order_by('?')[:4]
     recentlyAddedBooks = Book.objects.filter(isNew=True).order_by('?')[:5]

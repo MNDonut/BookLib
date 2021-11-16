@@ -57,11 +57,7 @@
                 <a class="book-author" href="{% url 'authorBooksBySlug' book.author.slug %}">{{ book.author }}</a>
                 <p class="book-price">{{ book.price }} <b>UAH</b></p>
                 {% if book.isAvailable %}
-                    {% if book in cart %}
-                        <a href="{% url 'addCartItem' book.slug %}" class="buy">У кошику</a>
-                    {% else %}
-                        <a href="{% url 'addCartItem' book.slug %}" class="buy">У кошик</a>
-                    {% endif %}
+                    <a href="{% url 'addCartItem' book.slug %}" class="buy">У кошик</a>
                 {% endif %}
             </div>
             {% endfor %}
@@ -97,11 +93,7 @@
                 <a class="book-author" href="{% url 'authorBooksBySlug' book.author.slug %}">{{ book.author }}</a>
                 <p class="book-price">{{ book.price }} <b>UAH</b></p>
                 {% if book.isAvailable %}
-                    {% if book in cart %}
-                        <a href="{% url 'addCartItem' book.slug %}" class="buy">У кошику</a>
-                    {% else %}
-                        <a href="{% url 'addCartItem' book.slug %}" class="buy">У кошик</a>
-                    {% endif %}
+                    <a href="{% url 'addCartItem' book.slug %}" class="buy">У кошик</a>
                 {% endif %}
             </div>
             {% endfor %}

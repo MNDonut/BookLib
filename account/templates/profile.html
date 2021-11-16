@@ -1,0 +1,10 @@
+{% extends 'base/base.html' %}
+{% load static %}
+{% block title %}{{request.user.firstname}} {{request.user.lastname}}{% endblock %}
+
+{% block content %}
+<link rel="stylesheet" href="{% static 'profile.css' %}">
+<div class="profile-wrapper">
+    <h1>{{request.user.firstname}} {{request.user.lastname}} {{request.user.patronymic}}</h1>
+</div>
+{% endblock %}

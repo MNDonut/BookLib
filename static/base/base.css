@@ -27,7 +27,7 @@ a {
     text-decoration: none;
 }
 
-.navbar, .center, .right, .social-list, .search, footer, .footer-info-list, .footer-social-list {
+.navbar, .center, .right, .social-list, .search, footer, .footer-info-list, .footer-social-list, .search_container form {
     display: grid;
 }
 
@@ -43,7 +43,7 @@ a {
     color: white;
 }
 
-.logo-text, .info-list li a, .login, footer {
+.logo-text, .info-list li a, .login, footer, .search-input, .search-button {
     font-family: 'Balsamiq Sans', cursive;
 }
 
@@ -122,6 +122,26 @@ a {
     align-items: center;
 }
 
+.search_container input {
+    padding: 10px;
+    outline-style: none;
+}
+
+.search_container form {
+    grid-template-columns: 4fr 1fr;
+}
+
+.search-button {
+    color: white;
+    background: var(--frame);
+    cursor: pointer;
+    border: 0;
+}
+
+.search-button:hover {
+    text-decoration: underline;
+}
+
 .login-list {
     justify-content: end;
 }
@@ -131,12 +151,6 @@ a {
     padding: 7px 15px;
     border-radius: 5px;
     background-color: var(--frame);
-}
-
-.search_container input {
-    padding: 10px;
-    width: 100%;
-    outline-style: none;
 }
 
 footer {

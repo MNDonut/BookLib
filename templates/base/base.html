@@ -35,7 +35,11 @@
                 </ul>
                 <div class="search">
                     <div class="search_container">
-                        <input type="text">
+                        <!-- action='.' means the same view(index)-->
+                        <form type="get" action=".">
+                            <input class='search-input' id="search" type="text" name="search" placeholder="Пошук">
+                            <button class='search-button' type="submit">Знайти</button>
+                        </form>
                     </div>
                     <div class="social">
                         <ul class="social-list">
@@ -62,7 +66,7 @@
                     <ul class="login-list">
                         <li><a href="{% url 'listOfCategories' %}">Категорії</a></li>
                         {% if user.is_authenticated %}
-                        <li><a href="#">Привіт, {{ user.firstname }}</a></li>
+                        <li><a href="{% url 'profile' %}">Привіт, {{ user.firstname }}</a></li>
                         <li><a href="{% url 'logout' %}">Вийти</a></li>
                         {% else %}
                         <li><a href="{% url 'login' %}">Увійти</a></li>
