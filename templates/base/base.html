@@ -36,7 +36,8 @@
                 <div class="search">
                     <div class="search_container">
                         <!-- action='.' means the same view(index)-->
-                        <form type="get" action=".">
+                        <!--However this form may be used on other pages, so we don't user '.' here-->
+                        <form type="get" action="{% url 'index' %}">
                             <input class='search-input' id="search" type="text" name="search" placeholder="Пошук">
                             <button class='search-button' type="submit">Знайти</button>
                         </form>

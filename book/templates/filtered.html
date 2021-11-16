@@ -7,6 +7,7 @@
 <div class="books-wrapper">
     <h1 class="books-h1">Пошук книг за запитом: "{{ searchText }}"</h1>
     <br>
+    {% if filteredBooks %}
     <div class="books-list-wrapper">
         {% for book in filteredBooks %}
         <div class="book">
@@ -32,5 +33,9 @@
         </div>
         {% endfor %}
     </div>
+    {% else %}
+    <h2 class="books-h1">Книг за таким запитом не знайдено :(</h2>
+    <br>
+    {% endif %}
 </div>
 {% endblock %}
