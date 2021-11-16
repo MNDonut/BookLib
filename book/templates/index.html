@@ -30,16 +30,16 @@
     </div>
 </div>
 <div class="title">
-    <h2>Онлайн книгарня з приємними цінами</h2>
+    <h2>Онлайн книгарня, у якій ти завжди знайдеш щось нове</h2>
 </div>
 <div class="index-wrapper">
     <br>
     <h2>Новинки</h2>
     <br>
-    <div class="new-books-container">
-        <div class="new-books-loop">
+    <div class="books-container">
+        <div class="books-loop">
             {% for book in recentlyAddedBooks %}
-            <div class="new-book">
+            <div class="book">
                 {% if book.isNew %}
                 <div class="book-new">
                     <span>Новинка</span>
@@ -50,14 +50,58 @@
                     <span>Популярна</span>
                 </div>
                 {% endif %}
-                <a href="{% url 'bookBySlug' book.slug %}" class="new-book-img">
+                <a href="{% url 'bookBySlug' book.slug %}" class="book-img">
                     <img src="{{ book.image.url }}" alt="">
                 </a>
-                <a class="new-book-title" href="{% url 'bookBySlug' book.slug %}"><b>{{ book.title }}</b></a>
-                <a class="new-book-author" href="{% url 'authorBooksBySlug' book.author.slug %}">{{ book.author }}</a>
-                <p class="new-book-price">{{ book.price }} <b>UAH</b></p>
+                <a class="book-title" href="{% url 'bookBySlug' book.slug %}"><b>{{ book.title }}</b></a>
+                <a class="book-author" href="{% url 'authorBooksBySlug' book.author.slug %}">{{ book.author }}</a>
+                <p class="book-price">{{ book.price }} <b>UAH</b></p>
                 {% if book.isAvailable %}
-                <a href="{% url 'addCartItem' book.slug %}" class="buy">У кошик</a>
+                    {% if book in cart %}
+                        <a href="{% url 'addCartItem' book.slug %}" class="buy">У кошику</a>
+                    {% else %}
+                        <a href="{% url 'addCartItem' book.slug %}" class="buy">У кошик</a>
+                    {% endif %}
+                {% endif %}
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+<br>
+<div class="title">
+    <h2>Обирай популярні книги</h2>
+</div>
+<div class="index-wrapper">
+    <br>
+    <h2>Популярні</h2>
+    <br>
+    <div class="books-container">
+        <div class="books-loop">
+            {% for book in popularBooks %}
+            <div class="book">
+                {% if book.isNew %}
+                <div class="book-new">
+                    <span>Новинка</span>
+                </div>
+                {% endif %}
+                {% if book.isHot %}
+                <div class="book-popular">
+                    <span>Популярна</span>
+                </div>
+                {% endif %}
+                <a href="{% url 'bookBySlug' book.slug %}" class="book-img">
+                    <img src="{{ book.image.url }}" alt="">
+                </a>
+                <a class="book-title" href="{% url 'bookBySlug' book.slug %}"><b>{{ book.title }}</b></a>
+                <a class="book-author" href="{% url 'authorBooksBySlug' book.author.slug %}">{{ book.author }}</a>
+                <p class="book-price">{{ book.price }} <b>UAH</b></p>
+                {% if book.isAvailable %}
+                    {% if book in cart %}
+                        <a href="{% url 'addCartItem' book.slug %}" class="buy">У кошику</a>
+                    {% else %}
+                        <a href="{% url 'addCartItem' book.slug %}" class="buy">У кошик</a>
+                    {% endif %}
                 {% endif %}
             </div>
             {% endfor %}

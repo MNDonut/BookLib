@@ -1,5 +1,5 @@
 .top-editions-container, .top-editions-loop, .random-category, .random-categories-container,
-.random-categories-loop, .new-book, .new-books-loop, .book-new, .book-popular {
+.random-categories-loop, .book, .books-loop, .book-new, .book-popular {
     display: grid;
     z-index: 1;
 }
@@ -100,12 +100,12 @@
     z-index: 1;
 }
 
-.new-books-loop {
+.books-loop {
     column-gap: 20px;
     grid-template-columns: repeat(5, 1fr);
 }
 
-.new-book {
+.book {
     align-items: center;
     z-index: 1;
     row-gap: 20px;
@@ -117,7 +117,7 @@
                          "price buy";
 }
 
-.new-book:hover {
+.book:hover {
     transform: scale(1.05);
 }
 
@@ -138,27 +138,27 @@
     color: white;
 }
 
-.new-book-img {
+.book-img {
     text-align: center;
     grid-area: img;
 }
 
-.new-book-img img {
+.book-img img {
     width: auto;
     max-height: 320px;
 }
 
-.new-book-title {
+.book-title {
     grid-area: title;
     color: black;
 }
 
-.new-book-author {
+.book-author {
     color: gray;
     grid-area: author;
 }
 
-.new-book-price {
+.book-price {
     grid-area: price;
 }
 
