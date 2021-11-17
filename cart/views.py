@@ -7,8 +7,10 @@ from django.http import HttpResponseRedirect
 @login_required
 def cart(request):
     items = CartItem.objects.filter(user=request.user)
+    total = sum(x.book.price for x in items)
     context = {
-        'items': items
+        'items': items,
+        'total': total
     }
 
     return render(request, 'cart.html', context)

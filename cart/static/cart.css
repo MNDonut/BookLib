@@ -3,64 +3,80 @@ body {
 }
 
 h1 {
-    padding: 10px 0;
-    text-align: center;
+    padding: 20px;
 }
 
 .cart-wrapper {
-    padding: 0 10%;
+    padding: 0 20px;
 }
 
-.cart-loop {
-    padding: 20px 0;
-    border-top: 2px solid var(--menu);
-    border-left: 2px solid var(--menu);
-    border-right: 2px solid var(--menu);
-    row-gap: 20px;
+.content {
     display: grid;
-    overflow: hidden;
+    grid-template-columns: 2fr 1fr;
+    border: 2px solid var(--menu);
+    column-gap: 20px;
+    margin: 0 0 20px;
 }
 
-.cart-loop * {
+.content * {
     z-index: 1;
 }
 
+.cart-loop {
+    column-gap: 20px;
+    row-gap: 20px;
+    padding: 20px 20px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    overflow: hidden;
+    border-right: 2px solid var(--menu);
+}
+
 .cartItem {
-    text-align: center;
+    padding: 10px 10px;
     align-items: center;
     display: grid;
-    grid-template-columns: 1fr 3fr 1fr 0.5fr;
+    grid-template-areas: 'img img'
+                         'title removeBook'
+                         'price removeBook';
     transition: 0.3s ease-in-out;
+    grid-template-columns: 5fr 1fr;
+    row-gap: 10px;
 }
 
 .cartItem:hover {
     transform: scale(1.02);
+    background: rgba(235, 235, 235, 0.808);
 }
 
 .cartItem-img-container {
     display: flex;
     justify-content: center;
+    grid-area: img;
 }
 
 .cartItem-img-container img {
     width: auto;
-    max-height: 200px;
+    max-height: 250px;
 }
 
 .cartItem-title {
+    grid-area: title;
     color: black;
-    font-size: 20px;
+    font-size: 18px;
 }
 
-.cartItem-title:hover, .bookmark-buy:hover {
+.cartItem-title:hover {
     text-decoration: underline;
 }
 
 .cartItem-price {
     font-size: 18px;
+    grid-area: price;
 }
 
 .fa-times {
+    padding: 10px 15px;
     color: crimson;
     transition: 0.3s ease-in-out;
 }
@@ -68,5 +84,22 @@ h1 {
 .fa-times:hover {
     color: white;
     background: crimson;
-    padding: 10px 15px;
+}
+
+.cartItem-remove {
+    display: flex;
+    justify-content: center;
+    grid-area: removeBook;
+}
+
+.total {
+    border-right: 2px solid var(--menu);
+    text-align: end;
+    font-size: 17px;
+    padding: 5px;
+    border-top: 2px solid var(--menu);
+}
+
+.cart-make-order {
+    padding: 20px 0;
 }
