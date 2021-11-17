@@ -41,7 +41,6 @@ h1 {
     font-size: 20px;
     background: var(--frame);
     transition: 0.2s ease-in-out;
-
 }
 
 .authorization-button:hover {

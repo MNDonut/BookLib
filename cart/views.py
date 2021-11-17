@@ -1,16 +1,40 @@
 from django.contrib.auth.decorators import login_required
-from django.shortcuts import render
+from django.shortcuts import redirect, render
 from .models import CartItem
 from book.models import Book
 from django.http import HttpResponseRedirect
+from .models import Order
+from .forms import OrderForm
 
 @login_required
 def cart(request):
     items = CartItem.objects.filter(user=request.user)
     total = sum(x.book.price for x in items)
+    if request.method == 'POST':
+        form = OrderForm(request.POST)
+        if form.is_valid():
+            form.save()
+            # after purchase delete all ordered books from user's cart and reduce their count by 1
+            for cartItem in items:
+                book = Book.objects.get(ISBN=cartItem.book.ISBN)
+                book.number -= 1
+                book.save()
+                cartItem.delete()
+            return redirect('index')
+
+        context = {
+            'items': items,
+            'total': total,
+            'form': form
+        }
+
+        return render(request, 'cart.html', context)
+
+    form = OrderForm()
     context = {
         'items': items,
-        'total': total
+        'total': total,
+        'form': form
     }
 
     return render(request, 'cart.html', context)

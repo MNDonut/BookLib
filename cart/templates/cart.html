@@ -23,7 +23,22 @@
             {% endfor %}
         </div>
         <div class='cart-make-order'>
-            some
+            <div class='cart-make-order-sticky-container'>
+                <h2 class='make-order-h2'style='border-bottom: 2px solid black'>Замовлення</h2>
+                <br>
+                <form method='post'>
+                    {% csrf_token %}
+                    {% for field in form %}
+                    <p class='make-order'>{{ field }}</p>
+                    <br>
+                        {% for error in field.errors %}
+                            <span class='make-order-error'>{{ error }}</span>
+                            <br><br>
+                        {% endfor %}
+                    {% endfor %}
+                    <button class='make-order-button' type="submit">Замовити</button>
+                </form>
+            </div> 
         </div>
         <span class='total'>Загальна вартість: <b>{{ total }} UAH</b></span>
     </div>
