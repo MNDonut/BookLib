@@ -6,5 +6,28 @@
 <link rel="stylesheet" href="{% static 'profile.css' %}">
 <div class="profile-wrapper">
     <h1>{{request.user.firstname}} {{request.user.lastname}} {{request.user.patronymic}}</h1>
+    <br>
+    <h3>Ваші замовлення:</h3>
+    <br>
+    <div class="orders-wrapper">
+    {% for dict in listOrderAndBooks %}
+        {% for number, orderedBooks in dict.items %}
+            <div class="order">
+                <p class="order-number"><b>{{ number }}</b></p>
+                <br>
+                <div class="ordered-book-loop">
+                    {% for book in orderedBooks %}
+                        <div class="book">
+                            <a href="{% url 'bookBySlug' book.slug %}">
+                                <img class="book-img" src="{{ book.image.url }}" alt="">
+                            </a>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+            <br>
+        {% endfor %}
+    {% endfor %}
+    </div>
 </div>
 {% endblock %}
