@@ -3,8 +3,14 @@ from django.shortcuts import redirect, render
 from .models import CartItem
 from book.models import Book
 from django.http import HttpResponseRedirect
-from .models import Order
 from .forms import OrderForm
+
+
+"""
+Think about adding bought book in orders
+Delivery in Nova Poshta and Ukrposhta
+"""
+
 
 @login_required
 def cart(request):

@@ -2,6 +2,7 @@ from django import forms
 from django.forms.widgets import EmailInput, TextInput
 from .models import Order
 from django.utils.translation import ugettext_lazy as _
+from .models import DELIVERY
 
 class OrderForm(forms.ModelForm):
     userFirstName = forms.CharField(widget=TextInput(attrs={
@@ -21,7 +22,11 @@ class OrderForm(forms.ModelForm):
         widget=TextInput(attrs={
         'placeholder': 'Номер телефону'
     }))
+    delivery = forms.ChoiceField(choices=DELIVERY, widget=forms.Select(), required=True)
+    deliveryAddress = forms.CharField(widget=TextInput(attrs={
+        'placeholder': 'Адреса відділення'
+    }))
 
     class Meta:
         model = Order
-        fields = ['userFirstName', 'userLastName', 'userPatronymic', 'userEmail', 'userPhone']
+        fields = ['userFirstName', 'userLastName', 'userPatronymic', 'userEmail', 'userPhone', 'deliveryAddress', 'delivery']

@@ -135,3 +135,8 @@ h1 {
     position: sticky;
     top: 100px;
 }
+
+select {
+    width: 90%;
+    padding: 10px 20px;
+}
