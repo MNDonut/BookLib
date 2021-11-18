@@ -54,5 +54,10 @@ class Book(models.Model):
         return str(self.title).capitalize()
 
     def save(self, *args, **kwargs):
+        # if user ordered the last book then it'll be not available
+        if self.number == 0:
+            self.isAvailable = False
+        else:
+            self.isAvailable = True
         self.slug = slugify(unidecode(self.title))
         super(Book, self).save(*args, **kwargs)
