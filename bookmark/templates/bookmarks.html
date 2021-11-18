@@ -17,7 +17,7 @@
                 <a href="{% url 'bookBySlug' bookmark.book.slug %}" class="bookmark-title">{{ bookmark.book.title }}</a>
             </p>
             <p class="bookmark-price">{{ bookmark.book.price }} <b>UAH</b></p>
-            <a href="#" class="bookmark-in-cart">У кошик</a>
+            <a href="{% url 'addCartItem' bookmark.book.slug %}" class="bookmark-in-cart">У кошик</a>
             <a href="{% url 'removeBookmark' bookmark.book.slug %}"><i class="fas fa-times fa-2x"></i></a>
         </div>
         {% endfor %}
