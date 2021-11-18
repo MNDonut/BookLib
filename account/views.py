@@ -1,6 +1,7 @@
 from django.shortcuts import redirect, render
 from .forms import RegistrationForm
 from django.contrib.auth import logout
+from django.contrib.auth.decorators import login_required
 from django.http import HttpResponseRedirect
 from cart.models import Order, OrderedBook
 
@@ -25,6 +26,7 @@ def logUserOut(request):
     logout(request)
     return HttpResponseRedirect(request.META.get("HTTP_REFERER")) 
 
+@login_required
 def profile(request):
     userOrders = Order.objects.filter(
         userFirstName = request.user.firstname,
