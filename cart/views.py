@@ -5,11 +5,6 @@ from book.models import Book
 from django.http import HttpResponseRedirect
 from .forms import OrderForm
 
-"""
-Think about adding bought book in orders
-"""
-
-
 @login_required
 def cart(request):
     items = CartItem.objects.filter(user=request.user)
