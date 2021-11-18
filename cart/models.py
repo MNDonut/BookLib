@@ -42,3 +42,11 @@ class Order(models.Model):
 
     def __str__(self):
         return f"Замовлення №{self.orderNumber}"
+
+class OrderedBook(models.Model):
+    orderNumber = models.ForeignKey(Order, on_delete=CASCADE)
+    user = models.ForeignKey(CustomUser, on_delete=CASCADE)
+    book = models.ForeignKey(Book, on_delete=CASCADE)
+
+    def __str__(self):
+        return f'{self.orderNumber} - {self.book}'

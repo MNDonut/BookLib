@@ -1,14 +1,12 @@
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import redirect, render
-from .models import CartItem
+from .models import CartItem, OrderedBook, Order
 from book.models import Book
 from django.http import HttpResponseRedirect
 from .forms import OrderForm
 
-
 """
 Think about adding bought book in orders
-Delivery in Nova Poshta and Ukrposhta
 """
 
 
@@ -20,12 +18,20 @@ def cart(request):
         form = OrderForm(request.POST)
         if form.is_valid():
             form.save()
+            # get instance for using its pk to create new ordered books
+            theSameForm = form.save()
             # after purchase delete all ordered books from user's cart and reduce their count by 1
             for cartItem in items:
                 book = Book.objects.get(ISBN=cartItem.book.ISBN)
                 book.number -= 1
                 book.save()
+                newOrderedBook = OrderedBook.objects.create(
+                    orderNumber_id = theSameForm.pk,
+                    user = request.user,
+                    book = book,
+                )
                 cartItem.delete()
+
             return redirect('index')
 
         context = {
