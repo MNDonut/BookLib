@@ -19,7 +19,8 @@ def phoneValidFormatValidator(phone: str):
 
 DELIVERY = (
     ('NovaPoshta', 'Нова Пошта'),
-    ('UkrPoshta', 'Укрпошта')
+    ('UkrPoshta', 'Укрпошта'),
+    ('Justin', 'Justin')
 )   
 
 class CartItem(models.Model):
