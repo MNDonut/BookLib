@@ -8,8 +8,15 @@
     <h1 class="editions-h1">Видавництва</h1>
     <br>
     <div class="editions-list-wrapper">
-        {% for edition in editions %}
-            <a class="edition" href="{% url 'edition' edition.slug %}">{{ edition }}</a>
+        {% for letter, editions in letterAndEdition.items %}
+            <h2 class="letter">{{ letter }}</h2>
+            <br>
+            <div class="editions">
+                {% for edition in editions %}
+                    <a class="edition" href="{% url 'edition' edition.slug %}">{{ edition }}</a>
+                {% endfor %}
+            </div>
+            <br>
         {% endfor %}
     </div>
 </div>

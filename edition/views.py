@@ -14,8 +14,19 @@ def edition(request, slug):
 
 def listOfEditions(request):
     editions = Edition.objects.all().order_by('title')
+    listOfLetters = []
+    for edition in editions:
+        letter = str(edition.title)[0].upper() 
+        if letter.upper() not in listOfLetters:
+            listOfLetters.append(letter.upper())
+
+    letterAndEdition = {}
+    for letter in listOfLetters:
+        letterAndEdition[letter] = \
+            [edition for edition in editions if str(edition.title).upper().startswith(letter)]
+            
     context = {
-        'editions': editions
+        'letterAndEdition': letterAndEdition
     }
     
     return render(request, 'listOfEditions.html', context)

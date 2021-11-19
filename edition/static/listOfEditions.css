@@ -1,18 +1,18 @@
+.letter {
+    border-bottom: 2px solid var(--menu);
+}
+
 .editions-wrapper {
     padding: 20px;
 }
 
-.editions-h1, .edition {
+.editions-h1, .edition, .letter {
     font-family: 'Balsamiq Sans', cursive;
 }
 
 .editions-list-wrapper {
-    padding: 5px 0 0;
-    border-top: 1px solid var(--frame);
-    border-bottom: 1px solid var(--frame);
-    display: grid;
+    padding: 10px 0;
     justify-content: space-between;
-    grid-template-columns: repeat(4, 1fr);
 }
 
 .edition {
@@ -22,4 +22,10 @@
 
 .edition:hover {
     text-decoration: underline;
+}
+
+.editions {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    column-gap: 20px;
 }
