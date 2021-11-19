@@ -35,11 +35,12 @@ def profile(request):
         userEmail = request.user.email,
     )
     userOrderedBooks = OrderedBook.objects.filter(user=request.user)
-    listOrderAndBooks = []
+    # make a dict like 'order number': list of book by this order
+    listOrderAndBooks = {}
     for order in userOrders:
-        listOrderAndBooks.append(
-            {str(order): [orderedBook.book for orderedBook in userOrderedBooks if orderedBook.orderNumber_id==order.orderNumber]}
-        )
+        listOrderAndBooks[str(order)] = \
+        [orderedBook.book for orderedBook in userOrderedBooks \
+                            if orderedBook.orderNumber_id==order.orderNumber]
 
     context = {
         'listOrderAndBooks': listOrderAndBooks

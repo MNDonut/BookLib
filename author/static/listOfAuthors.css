@@ -3,6 +3,10 @@ h2 {
     border-bottom: 2px solid var(--menu);
 }
 
+.authors-wrapper * {
+    z-index: 1;
+}
+
 .authors-wrapper {
     padding: 20px;
 }

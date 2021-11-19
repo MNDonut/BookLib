@@ -10,8 +10,7 @@
     <h3>Ваші замовлення:</h3>
     <br>
     <div class="orders-wrapper">
-    {% for dict in listOrderAndBooks %}
-        {% for number, orderedBooks in dict.items %}
+        {% for number, orderedBooks in listOrderAndBooks.items %}
             <div class="order">
                 <p class="order-number"><b>{{ number }}</b></p>
                 <br>
@@ -27,7 +26,6 @@
             </div>
             <br>
         {% endfor %}
-    {% endfor %}
     </div>
 </div>
 {% endblock %}
