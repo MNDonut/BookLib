@@ -1,18 +1,14 @@
+h2 {
+    padding: 10px 0;
+    border-bottom: 2px solid var(--menu);
+}
+
 .authors-wrapper {
     padding: 20px;
 }
 
-.authors-h1, .author {
+.authors-h1, .author, h2 {
     font-family: 'Balsamiq Sans', cursive;
-}
-
-.authors-list-wrapper {
-    padding: 5px 0 0;
-    border-top: 1px solid var(--frame);
-    border-bottom: 1px solid var(--frame);
-    display: grid;
-    justify-content: space-between;
-    grid-template-columns: repeat(6, 1fr);
 }
 
 .author {
@@ -22,4 +18,10 @@
 
 .author:hover {
     text-decoration: underline;
+}
+
+.letter-authors {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    column-gap: 10px;
 }

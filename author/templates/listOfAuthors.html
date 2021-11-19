@@ -8,8 +8,15 @@
     <h1 class="authors-h1">Автори</h1>
     <br>
     <div class="authors-list-wrapper">
-        {% for author in authors %}
-            <a class="author" href="{% url 'authorBooksBySlug' author.slug %}">{{ author }}</a>
+        {% for letter, authors in letterAndAuthors.items %}
+            <h2>{{ letter }}</h2>
+            <br>
+            <div class="letter-authors">
+                {% for author in authors %}
+                    <a class="author" href="{% url 'authorBooksBySlug' author.slug %}">{{ author }}</a>
+                {% endfor %}
+            </div>
+            <br>
         {% endfor %}
     </div>
 </div>

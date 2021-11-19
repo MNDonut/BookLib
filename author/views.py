@@ -13,9 +13,21 @@ def authorBooksBySlug(request, slug):
     return render(request, 'author.html', context)
 
 def listOfAuthors(request):
+    letters = 'АБВГДЕЄЖЗИІЇЙКЛМНОПРСТУФХЦЧШЩЬЮЯ'
     authors = Author.objects.all().order_by('firstname')
+
+    # author model has overrided save method
+    # its firstname and lastname after saving change first letter
+    # in these fields to upper case by capitalize()
+    letterAndAuthors = {}
+    for letter in letters:
+        letterAndAuthors[letter] = \
+        [author for author in authors if str(author.firstname).startswith(letter)]
+
+    # display letters with at least 1 author
+    letterAndAuthors = {letter: authors for letter, authors in letterAndAuthors.items() if authors}
     context = {
-        'authors': authors
+        'letterAndAuthors': letterAndAuthors
     }
     
     return render(request, 'listOfAuthors.html', context)
