@@ -58,8 +58,5 @@
 
 .category:hover {
     transform: scale(1.2);
-}
-
-.category-img:hover {
-    opacity: 0.2;
+    text-decoration: none;
 }
