@@ -16,6 +16,7 @@
 }
 
 .edition {
+    z-index: 1;
     color:rgb(33, 94, 165);
     padding-bottom: 5px;
 }
