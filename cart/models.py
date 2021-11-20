@@ -24,8 +24,8 @@ DELIVERY = (
 )   
 
 class CartItem(models.Model):
-    user = models.ForeignKey(CustomUser, on_delete=CASCADE)
-    book = models.ForeignKey(Book, on_delete=CASCADE)
+    user = models.ForeignKey(CustomUser, on_delete=CASCADE, verbose_name='Користувач')
+    book = models.ForeignKey(Book, on_delete=CASCADE, verbose_name='Книга')
 
     def __str__(self):
         return f"{self.book}"
@@ -38,16 +38,16 @@ class Order(models.Model):
     userEmail = models.EmailField('Електронна адреса', )
     userPhone = models.CharField('Номер телефону', max_length=13, validators=[phoneNationalFormatValidator, phoneLessNumbersValidator, phoneValidFormatValidator])
     delivery = models.CharField('Доставка', choices=DELIVERY, max_length=10, default='NovaPoshta')
-    date = models.DateTimeField(default = timenow)
-    deliveryAddress = models.CharField(max_length=128, default='')
+    date = models.DateTimeField('Дата', default = timenow)
+    deliveryAddress = models.CharField('Адреса відділення', max_length=128, default='')
 
     def __str__(self):
         return f"Замовлення №{self.orderNumber}"
 
 class OrderedBook(models.Model):
-    orderNumber = models.ForeignKey(Order, on_delete=CASCADE)
-    user = models.ForeignKey(CustomUser, on_delete=CASCADE)
-    book = models.ForeignKey(Book, on_delete=CASCADE)
+    orderNumber = models.ForeignKey(Order, on_delete=CASCADE, verbose_name='Номер замовлення')
+    user = models.ForeignKey(CustomUser, on_delete=CASCADE, verbose_name='Користувач')
+    book = models.ForeignKey(Book, on_delete=CASCADE, verbose_name='Книга')
 
     def __str__(self):
         return f'{self.orderNumber} - {self.book}'
