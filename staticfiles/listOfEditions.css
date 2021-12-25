@@ -1,0 +1,32 @@
+.letter {
+    border-bottom: 2px solid var(--menu);
+}
+
+.editions-wrapper {
+    padding: 20px;
+}
+
+.editions-h1, .edition, .letter {
+    font-family: 'Balsamiq Sans', cursive;
+}
+
+.editions-list-wrapper {
+    padding: 10px 0;
+    justify-content: space-between;
+}
+
+.edition {
+    z-index: 1;
+    color:rgb(33, 94, 165);
+    padding-bottom: 5px;
+}
+
+.edition:hover {
+    text-decoration: underline;
+}
+
+.editions {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    column-gap: 20px;
+}

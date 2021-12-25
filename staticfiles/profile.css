@@ -1,0 +1,30 @@
+.profile-wrapper {
+    font-family: 'Balsamiq Sans', cursive;
+    margin: 40px;
+}
+
+.order {
+    padding: 10px;
+    border: 2px solid var(--menu);
+}
+
+.ordered-book-loop {
+    display: grid;
+    column-gap: 20px;
+    grid-template-columns: repeat(5, 1fr);
+}
+
+.book {
+    z-index: 1;
+    padding: 10px;
+}
+
+.book-img {
+    width: auto;
+    max-height: 300px;
+    transition: 0.3s ease-in-out;
+}
+
+.book-img:hover {
+    transform: scale(1.05);
+}

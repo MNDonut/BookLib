@@ -1,0 +1,20 @@
+h1 {
+    font-family: 'Balsamiq Sans', cursive;
+}
+
+.delivery-wrapper {
+    padding: 20px 40px;
+}
+
+.delivery-list-item {
+    padding: 5px 0;
+}
+
+.delivery-list-item {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.delivery-list-item-text, h3 {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color: var(--menu);
+}

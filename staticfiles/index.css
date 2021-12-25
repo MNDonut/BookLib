@@ -1,0 +1,176 @@
+.top-editions-container, .top-editions-loop, .random-category, .random-categories-container,
+.random-categories-loop, .book, .books-loop, .book-new, .book-popular {
+    display: grid;
+    z-index: 1;
+}
+
+.top-edition, .allEditionsButton, .random-category {
+    color: white;
+    z-index: 1;
+}
+
+.top-edition:hover, .allEditionsButton:hover {
+    text-decoration: underline;
+}
+
+.top-edition, .allEditionsButton {
+    border-radius: 5px;
+}
+
+.index-wrapper {
+    font-family: 'Balsamiq Sans', cursive;
+    padding: 20px 40px;
+}
+
+.top-editions-container {
+    padding: 20px 0 0;
+    grid-template-rows: 2fr 1fr;
+    row-gap: 10px;
+    text-align: center;
+}
+
+.top-editions-loop {
+    grid-template-columns: repeat(3, 1fr);
+    column-gap: 50px;
+}
+
+.top-edition {
+    border: 2px solid var(--menu);
+    background: var(--menu);
+    font-size: 28px;
+    padding: 30px;
+}
+
+.allEditionsButton {
+    justify-self: end;
+    width: max-content;
+    align-self: center;
+    background: var(--menu);
+    padding: 10px 15px;
+}
+
+.random-categories-container {
+    padding: 20px 0 0;
+    grid-template-rows: 2fr 1fr;
+}
+
+.random-categories-loop {
+    grid-template-columns: repeat(4, 1fr);
+    column-gap: 40px;
+    z-index: 1;
+}
+
+.random-category {
+    font-size: 24px;
+    align-items: center;
+    max-height: 180px;
+    background: black;
+    border-radius: 20px;
+    transition: 0.3s ease-in-out;
+}
+
+.random-category-img {
+    width: 100%;
+    height: auto;
+    min-height: 180px;
+    max-height: 180px;
+    opacity: 0.6;
+    border-radius: 20px;
+}
+
+.random-category:hover {
+    transform: scale(1.05);
+}
+
+.random-category-title {
+    display: flex;
+    justify-self: center;
+    position: absolute;
+}
+
+.title {
+    display: flex;
+    align-items: center;
+    height: 50px;
+    justify-content: center;
+    color: white;
+    width: 100%;
+    background: var(--menu);
+    font-family: 'Balsamiq Sans', cursive;
+}
+
+.title h2 {
+    z-index: 1;
+}
+
+.books-loop {
+    column-gap: 20px;
+    grid-template-columns: repeat(5, 1fr);
+}
+
+.book {
+    align-items: center;
+    z-index: 1;
+    row-gap: 20px;
+    transition: 0.3s ease-in-out;
+    grid-template-areas: "new popular"
+                         "img img"
+                         "title title"
+                         "author author"
+                         "price buy";
+}
+
+.book:hover {
+    transform: scale(1.05);
+}
+
+.book-new {
+    grid-area: new;
+    background: rgb(29, 218, 29);
+}
+
+.book-popular {
+    grid-area: popular;
+    background: crimson;
+}
+
+.book-new, .book-popular {
+    padding: 5px 0;
+    text-align: center;
+    align-items: center;
+    color: white;
+}
+
+.book-img {
+    text-align: center;
+    grid-area: img;
+}
+
+.book-img img {
+    width: auto;
+    max-height: 320px;
+}
+
+.book-title {
+    grid-area: title;
+    color: black;
+}
+
+.book-author {
+    color: gray;
+    grid-area: author;
+}
+
+.book-price {
+    grid-area: price;
+}
+
+.buy {
+    grid-area: buy;
+    align-self: center;
+    color: white;
+    border-radius: 5px;
+    background: black;
+    text-align: center;
+    padding: 5px 0;
+}

@@ -1,0 +1,96 @@
+* {
+    font-family: 'Balsamiq Sans', cursive;
+}
+
+.book-title, .book-author, .book-price {
+    padding: 0 0 0 20px;
+}
+
+.books-h1 {
+    font-family: 'Balsamiq Sans', cursive;
+}
+
+.books-wrapper {
+    padding: 20px 40px;
+}
+
+.books-list-wrapper {
+    row-gap: 20px;
+    column-gap: 20px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+}
+
+.book {
+    z-index: 1;
+    display: grid;
+    grid-template-areas: "new popular"
+                         "img img"
+                         "title title"
+                         "author author"
+                         "price buy";
+    row-gap: 20px;
+    padding: 0 0 10px;
+    transition: 0.3s ease-in-out;
+}
+
+.book:hover {
+    transform: scale(1.05);
+}
+
+.book-new {
+    background: rgb(29, 218, 29);
+    grid-area: new;
+}
+
+.book-popular {
+    background: crimson;
+    grid-area: popular;
+}
+
+.book-new, .book-popular {
+    display: grid;
+    align-items: center;
+    padding: 5px 0;
+    text-align: center;
+    color: white;
+}
+
+.book-img-container {
+    text-align: center;
+}
+
+.book-img-container {
+    grid-area: img;
+}
+
+.book-img {
+    height: auto;
+    max-height: 250px;
+}
+
+.book-title {
+    grid-area: title;
+    color: black;
+}
+
+.book-author {
+    color: gray;
+    grid-area: author;
+}
+
+.book-price {
+    font-size: 20px;
+    grid-area: price;
+    align-self: center;
+}
+
+.book-buy {
+    align-self: center;
+    color: white;
+    border-radius: 5px;
+    background: black;
+    text-align: center;
+    grid-area: buy;
+    padding: 5px 0;
+}
