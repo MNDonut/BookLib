@@ -45,7 +45,10 @@ INSTALLED_APPS = [
     'book',
     'bookmark',
     'cart',
-    'fontawesome_free'
+    'fontawesome_free',
+    # for images
+    'cloudinary',
+    'cloudinary_storage',
 ]
 
 MIDDLEWARE = [
@@ -158,3 +161,18 @@ MEDIA_ROOT = BASE_DIR / 'media'
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# for saving images on the cloud Cloudinary
+# if images still don't load you have to add images to the models again
+
+import cloudinary
+import cloudinary.uploader
+import cloudinary.api
+
+CLOUDINARY_STORAGE = {
+    'CLOUD_NAME': 'ihorsokhan',
+    'API_KEY': '513871516383241',
+    'API_SECRET': 'L3QQ5F6QB1ZLMe1WhgBxeXppkxY'
+}
+
+DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
