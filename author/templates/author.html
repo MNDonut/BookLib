@@ -26,7 +26,7 @@
             <a href="{% url 'bookBySlug' book.slug %}" class="book-title"><b>{{ book.title }}</b></a>
             <a class="book-price">{{ book.price }}<b> UAH</b></a>
             {% if book.isAvailable %}
-                <a href="#" class="book-buy">У кошик</a>
+                <a href="{% url 'addCartItem' book.slug %}" class="book-buy">У кошик</a>
             {% endif %}
         </div>
         {% endfor %}
