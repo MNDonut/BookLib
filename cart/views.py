@@ -1,6 +1,6 @@
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import redirect, render
-from .models import CartItem, OrderedBook, Order
+from .models import CartItem, OrderedBook
 from book.models import Book
 from django.http import HttpResponseRedirect
 from .forms import OrderForm
@@ -15,7 +15,7 @@ def cart(request):
             form.save()
             # get instance for using its pk to create new ordered books
             theSameForm = form.save()
-            # after purchase delete all ordered books from user's cart and reduce their count by 1
+            # after purchase delete all ordered books from user's cart and reduce their number by 1
             for cartItem in items:
                 book = Book.objects.get(ISBN=cartItem.book.ISBN)
                 book.number -= 1
@@ -37,7 +37,16 @@ def cart(request):
 
         return render(request, 'cart.html', context)
 
-    form = OrderForm()
+    # throughout form GET rendering put user's data
+
+    form = OrderForm(
+        initial= {
+            'userFirstName': request.user.firstname,
+            'userLastName': request.user.lastname,
+            'userPatronymic': request.user.patronymic,
+            'userEmail': request.user.email
+        })
+        
     context = {
         'items': items,
         'total': total,

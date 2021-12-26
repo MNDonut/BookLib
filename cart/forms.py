@@ -20,7 +20,7 @@ class OrderForm(forms.ModelForm):
     userPhone = forms.CharField(
         error_messages={'max_length': 'Номер телефону містить забагато символів'},
         widget=TextInput(attrs={
-        'placeholder': 'Номер телефону'
+        'placeholder': 'Номер телефону в міжнародному форматі'
     }))
     delivery = forms.ChoiceField(choices=DELIVERY, widget=forms.Select(), required=True)
     deliveryAddress = forms.CharField(widget=TextInput(attrs={
