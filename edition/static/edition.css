@@ -41,6 +41,7 @@
 }
 
 .book-new, .book-popular {
+    max-height: 20px;
     padding: 5px 0;
     text-align: center;
     color: white;
