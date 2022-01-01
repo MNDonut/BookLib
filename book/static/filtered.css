@@ -49,6 +49,7 @@
 }
 
 .book-new, .book-popular {
+    max-height: 20px;
     display: grid;
     align-items: center;
     padding: 5px 0;
