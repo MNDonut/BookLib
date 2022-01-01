@@ -6,7 +6,7 @@ from .models import Book, Category
 from django.db.models import Count
 
 def index(request):
-    if request.GET.get('search', "") is not "":
+    if request.GET.get('search', "") != "":
         search_query = request.GET.get('search', None)
         # searching with ignoring case-sensitive
         filteredBooks = Book.objects.filter(title__icontains = search_query)
