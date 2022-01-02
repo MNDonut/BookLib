@@ -76,7 +76,30 @@
 }
 
 @media (max-width: 520px) {
-    
+    .wrapper .navbar {
+        height: 150px;
+    }
+    .wrapper .info-list {
+        column-gap: 10px;
+    }
+    .wrapper .center {
+        grid-template-rows: 1fr 1fr;
+    }
+}
+
+@media (max-width: 400px) {
+    .navbar .info-list li a {
+        font-size: 10px;
+    }
+    .navbar .search {
+        grid-template-columns: 1fr;
+    }
+    .navbar .social-list {
+        display: none;
+    }
+    .navbar .login-list li {
+        width: 25%;
+    }
 }
 
 * {
