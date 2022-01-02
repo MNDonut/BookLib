@@ -1,3 +1,84 @@
+@media (max-width: 1180px) {
+    .navbar .right {
+        text-align: center;
+        grid-template-areas: "icons login"
+                             "icons login";
+    }
+    .navbar .login-list {
+        flex-direction: column;
+        height: 100%;
+        justify-content: space-around;
+        align-items: center;
+    }
+    .navbar .login-list li {
+        width: 80%;
+        font-size: 12px;
+        padding: 5px;
+    }
+    .navbar .login-list li, 
+    .navbar .icons-list li {
+        margin: 0;
+    }
+    .navbar .icons {
+        height: 100%;
+    }
+    .navbar .icons-list {
+        height: 100%;
+        flex-direction: column;
+        justify-content: space-around;
+    }
+}
+
+@media (max-width: 900px) {
+    .wrapper .navbar {
+        grid-template-areas: "center right";
+        grid-template-columns: 3fr 1fr;
+    }
+    .navbar .logo {
+        display: none;
+    }
+    .navbar .center {
+        padding: 0 10px;
+    }
+}
+
+@media (max-width: 710px) {
+    .wrapper .navbar {
+        grid-template-areas: "center right";
+        grid-template-columns: 4fr 1fr;
+    }
+    .navbar .right {
+        grid-template-areas: "login"
+                             "login";
+    }
+    .icons {
+        display: none;
+    }
+}
+
+@media (max-width: 665px) {
+    .navbar .social-list {
+        text-align: center;
+    }
+    .navbar .login-list {
+        /* padding: 0 10px; */
+        flex-direction: row;
+        /* justify-content: space-between; */
+    }
+    .navbar .login-list li {
+        width: 30%;
+    }
+    .wrapper .navbar {
+        grid-template-areas: "center"
+                             "right";
+        grid-template-columns: 1fr; 
+    }
+}
+
+@media (max-width: 520px) {
+    
+}
+
 * {
     margin: 0;
     padding: 0;
