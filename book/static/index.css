@@ -24,6 +24,7 @@
     .wrapper .random-category {
         font-size: 20px;
         max-height: 120px;
+        text-align: center;
     }
     .wrapper .random-category-img {
         min-height: 120px;
@@ -98,6 +99,9 @@
         grid-template-rows: repeat(4, 1fr);
         grid-template-columns: 1fr;
         row-gap: 20px;
+    }
+    .wrapper .random-categories-container {
+        grid-template-rows: 12fr 1fr;
     }
     .wrapper .random-category {
         max-height: 250px;
