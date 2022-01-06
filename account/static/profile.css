@@ -3,6 +3,14 @@
     margin: 40px;
 }
 
+.profile-action {
+    color: black;
+}
+
+.profile-action:hover {
+    text-decoration: underline;
+}
+
 .order {
     padding: 10px;
     border: 2px solid var(--menu);

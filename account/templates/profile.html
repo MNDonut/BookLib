@@ -7,6 +7,10 @@
 <div class="profile-wrapper">
     <h1>{{request.user.firstname}} {{request.user.lastname}} {{request.user.patronymic}}</h1>
     <br>
+    <p><a href="{% url 'bookmarks' %}" class="profile-action">Улюблені</a></p>
+    <p><a href="{% url 'cart' %}" class="profile-action">Корзина</a></p>
+    <p><a href="{% url 'logout' %}" class="profile-action">Вийти</a></p>
+    <br>
     <h3>Ваші замовлення:</h3>
     <br>
     <div class="orders-wrapper">
