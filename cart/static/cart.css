@@ -1,3 +1,31 @@
+@media (max-width: 900px) {
+    .wrapper .cart-loop {
+        grid-template-columns: 1fr;
+    }
+    .wrapper .content {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (max-width: 556px) {
+    .wrapper .content {
+        grid-template-columns: 1fr;
+        grid-template-areas: "books"
+                             "total"
+                             "form";
+    }
+    .wrapper .cart-loop, .wrapper .total {
+        border-right: 0;
+    }
+    .wrapper .total {
+        text-align: center;
+        border-bottom: 2px solid var(--menu);
+    }
+    .wrapper .cart-make-order {
+        padding: 0 0 10px;
+    }
+}
+
 body {
     font-family: 'Balsamiq Sans', cursive;
 }
@@ -12,6 +40,8 @@ h1 {
 
 .content {
     display: grid;
+    grid-template-areas: "books form"
+                         "total .";
     grid-template-columns: 2fr 1fr;
     border: 2px solid var(--menu);
     margin: 0 0 20px;
@@ -22,6 +52,7 @@ h1 {
 }
 
 .cart-loop {
+    grid-area: books;
     column-gap: 20px;
     row-gap: 20px;
     padding: 20px 20px;
@@ -92,6 +123,7 @@ h1 {
 }
 
 .total {
+    grid-area: total;
     border-right: 2px solid var(--menu);
     text-align: end;
     font-size: 17px;
@@ -100,6 +132,7 @@ h1 {
 }
 
 .cart-make-order {
+    grid-area: form;
     text-align: center;
 }
 
