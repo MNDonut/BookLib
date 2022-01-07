@@ -41,10 +41,10 @@ class CustomUser(AbstractUser):
     first_name = None
     last_name = None
     # first parameter is for a console registration
-    firstname = models.CharField(_('First name'), max_length=32, default='')
-    lastname = models.CharField(_('Last name'), max_length=32, default='')
-    patronymic = models.CharField(_('Patronymic'), max_length=32, default='')
-    email = models.EmailField(_('Email address'), unique=True)
+    firstname = models.CharField(_('Ім\'я'), max_length=32, default='')
+    lastname = models.CharField(_('Прізвище'), max_length=32, default='')
+    patronymic = models.CharField(_('По-батькові'), max_length=32, default='')
+    email = models.EmailField(_('Електронна пошта'), unique=True)
     
     USERNAME_FIELD = 'email'
     REQUIRED_FIELDS = ['firstname', 'lastname', 'patronymic']
