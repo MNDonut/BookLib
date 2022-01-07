@@ -116,6 +116,9 @@
 }
 
 @media (max-width: 400px) {
+    .navbar .search {
+        grid-template-rows: 1fr;
+    }
     .navbar .info-list li a {
         font-size: 10px;
     }
