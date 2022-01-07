@@ -239,6 +239,7 @@
                          "title title"
                          "author author"
                          "price buy";
+    grid-template-columns: 1fr 1fr;
 }
 
 .book:hover {

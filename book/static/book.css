@@ -126,6 +126,7 @@ a {
                          "img img"
                          "title title"
                          "price buy";
+    grid-template-columns: 1fr 1fr;
     transition: 0.3s ease-in-out;
 }
 
@@ -138,6 +139,7 @@ a {
                          "title title"
                          "author author"
                          "price buy";
+    grid-template-columns: 1fr 1fr;
     transition: 0.3s ease-in-out;
 }
 
