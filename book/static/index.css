@@ -32,8 +32,7 @@
     }
     .wrapper .book {
         row-gap: 5px;
-        grid-template-areas: "new new"
-                             "popular popular"
+        grid-template-areas: "new popular"
                              "img img"
                              "title title"
                              "author price"
@@ -239,6 +238,7 @@
                          "title title"
                          "author author"
                          "price buy";
+    grid-template-columns: 1fr 1fr;
 }
 
 .book:hover {
