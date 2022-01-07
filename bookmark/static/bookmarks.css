@@ -1,3 +1,40 @@
+@media (max-width: 900px) {
+    .wrapper .bookmark {
+        padding: 0 20px;
+        grid-template-areas: "bookmark-img bookmark-title bookmark-title bookmark-title"
+                             "bookmark-img bookmark-price bookmark-in-cart bookmark-remove";
+        grid-template-columns: repeat(4, 1fr);    
+    }
+}
+
+@media (max-width: 665px) {
+    .wrapper .bookmarks-wrapper {
+        padding: 0 5%;
+    }
+    .wrapper .bookmark-in-cart:hover {
+        padding: 0;
+    }
+}
+
+@media (max-width: 600px) {
+    .wrapper .bookmark {
+        grid-template-areas: ". bookmark-remove"
+                             "bookmark-img bookmark-img"
+                             "bookmark-title bookmark-title"
+                             "bookmark-price bookmark-in-cart";
+        grid-template-columns: repeat(2, 1fr);   
+        row-gap: 20px; 
+    }
+    .wrapper .bookmark-remove {
+        text-align: right;
+    }
+    .wrapper .bookmark-in-cart {
+        background: green;
+        padding: 10px;
+        color: white;
+    }
+}
+
 body {
     font-family: 'Balsamiq Sans', cursive;
 }
@@ -29,6 +66,7 @@ h1 {
     text-align: center;
     align-items: center;
     display: grid;
+    grid-template-areas: "bookmark-img bookmark-title bookmark-price bookmark-in-cart bookmark-remove";
     grid-template-columns: 1fr 2fr 1fr 1fr 0.5fr;
     transition: 0.3s ease-in-out;
 }
@@ -38,6 +76,7 @@ h1 {
 }
 
 .bookmark-img-container {
+    grid-area: bookmark-img;
     display: flex;
     justify-content: center;
 }
@@ -45,6 +84,11 @@ h1 {
 .bookmark-img-container img {
     width: auto;
     max-height: 200px;
+}
+
+.bookmark-title-wrapper {
+    grid-area: bookmark-title;
+    text-align: center;
 }
 
 .bookmark-title {
@@ -57,7 +101,12 @@ h1 {
 }
 
 .bookmark-price {
+    grid-area: bookmark-price;
     font-size: 18px;
+}
+
+.bookmark-remove {
+    grid-area: bookmark-remove;
 }
 
 .fa-times {
@@ -72,6 +121,7 @@ h1 {
 }
 
 .bookmark-in-cart {
+    grid-area: bookmark-in-cart;
     color: black;
     font-size: 20px;
     transition: 0.3s ease-in-out;
