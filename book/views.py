@@ -2,7 +2,7 @@ from django.shortcuts import render
 from bookmark.models import BookMark
 from cart.models import CartItem
 from edition.models import Edition
-from .models import Book, Category
+from .models import Book, BookRate, Category
 from django.db.models import Count
 
 def index(request):
@@ -21,11 +21,13 @@ def index(request):
     random4Categories = Category.objects.all().order_by('?')[:4]
     recentlyAddedBooks = Book.objects.filter(isNew=True).order_by('?')[:5]
     popularBooks = Book.objects.filter(isHot=True).order_by('?')[:5]
+    top5Books = BookRate.objects.all()[:5]
     context = {
         'top3Editions': top3Editions,
         'random4Categories': random4Categories,
         'recentlyAddedBooks': recentlyAddedBooks,
-        'popularBooks': popularBooks
+        'popularBooks': popularBooks,
+        'topBooks': top5Books
     }
     
     return render(request, 'index.html', context)

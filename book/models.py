@@ -61,3 +61,13 @@ class Book(models.Model):
             self.isAvailable = True
         self.slug = slugify(unidecode(self.title))
         super(Book, self).save(*args, **kwargs)
+
+class BookRate(models.Model):
+    book = models.ForeignKey(Book, on_delete=CASCADE)
+    numberOfOrders = models.PositiveBigIntegerField('Кількість замовлень')
+
+    class Meta:
+        ordering = ['-numberOfOrders']
+
+    def __str__(self):
+        return str(self.book)

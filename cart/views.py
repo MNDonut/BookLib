@@ -1,7 +1,7 @@
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import redirect, render
 from .models import CartItem, OrderedBook
-from book.models import Book
+from book.models import Book, BookRate
 from django.http import HttpResponseRedirect
 from .forms import OrderForm
 
@@ -25,6 +25,13 @@ def cart(request):
                     user = request.user,
                     book = book,
                 )
+                try:
+                    increaseBookRate = BookRate.objects.get(book=book)
+                    increaseBookRate.numberOfOrders += 1
+                    increaseBookRate.save()
+                except BookRate.DoesNotExist:
+                    newBookRate = BookRate.objects.create(book=book, numberOfOrders=1)
+                    newBookRate.save()
                 cartItem.delete()
 
             return redirect('index')
