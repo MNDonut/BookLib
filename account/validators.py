@@ -11,6 +11,10 @@ class CustomTooCommonPasswordValidator():
             not any(char.isalpha() for char in password):
             raise ValidationError('Пароль повинен містити літери та цифри')
 
+    def get_help_text(self):
+        return "Ваш пароль повинен містити літери та цифри"
+
+
 
 class CustomUserAttributeSimilarityValidator(UserAttributeSimilarityValidator):
     def validate(self, password, user=None):

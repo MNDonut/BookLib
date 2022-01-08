@@ -3,8 +3,6 @@ from django.contrib.auth.admin import UserAdmin
 from django.utils.translation import ugettext_lazy as _
 from django.contrib.auth import get_user_model
 
-from author.models import Author
-
 class CustomUserAdmin(UserAdmin):
     """Define admin model for custom User model with no username field."""
     fieldsets = (
@@ -18,7 +16,7 @@ class CustomUserAdmin(UserAdmin):
         (None, {
             'classes': ('wide',),
             # show additional fields when I wanna add a new user on the admin panel
-            'fields': ('firstname', 'lastname', 'patronymic', 'email', 'password'),
+            'fields': ('firstname', 'lastname', 'patronymic', 'email', 'password1', 'password2'),
         }),
     )
     # display fields of users on the admin panel 
