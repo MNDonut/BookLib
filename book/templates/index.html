@@ -100,6 +100,40 @@
         </div>
     </div>
 </div>
+{% if topBooks %}
+<div class="title">
+    <h2>Топ 5 книг за кількістю замовлень</h2>
+</div>
+<div class="index-wrapper">
+    <div class="books-container">
+        <div class="books-loop">
+            {% for book in topBooks %}
+            <div class="book">
+                {% if book.book.isNew %}
+                <div class="book-new">
+                    <span>Новинка</span>
+                </div>
+                {% endif %}
+                {% if book.book.isHot %}
+                <div class="book-popular">
+                    <span>Популярна</span>
+                </div>
+                {% endif %}
+                <a href="{% url 'bookBySlug' book.book.slug %}" class="book-img">
+                    <img src="{{ book.book.image.url }}" alt="">
+                </a>
+                <a class="book-title" href="{% url 'bookBySlug' book.book.slug %}"><b>{{ book.book.title }}</b></a>
+                <a class="book-author" href="{% url 'authorBooksBySlug' book.book.author.slug %}">{{ book.book.author }}</a>
+                <p class="book-price">{{ book.book.price }} <b>UAH</b></p>
+                {% if book.book.isAvailable %}
+                    <a href="{% url 'addCartItem' book.book.slug %}" class="buy">У кошик</a>
+                {% endif %}
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+{% endif %}
 <div class="title">
     <h2>Не стримуйся - замовляй скільки хочеш :)</h2>
 </div>
