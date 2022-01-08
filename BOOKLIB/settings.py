@@ -108,22 +108,24 @@ DATABASES['default'].update(prod_db)
 
 AUTH_PASSWORD_VALIDATORS = [
     {
-        'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
-    },
-    {
         'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
     },
+    # custom password validators instead of built-in methods
+    {
+        'NAME': 'account.validators.CustomTooCommonPasswordValidator'
+    },
+    {
+        'NAME': 'account.validators.CustomUserAttributeSimilarityValidator'
+    }
     # {
     #     'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',  
     # },
     # {
     #     'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     # },
-
-    # custom password validator instead of two built-in methods
-    {
-        'NAME': 'account.validators.CustomTooCommonPasswordValidator'
-    }
+    # {
+    #     'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
+    # },
 ]
 
 AUTH_USER_MODEL = 'account.CustomUser'
