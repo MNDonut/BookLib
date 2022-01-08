@@ -65,6 +65,7 @@
                 </div>
                 <div class="login">
                     <ul class="login-list">
+                        <li class="index-button"><a href="{% url 'index' %}">Головна</a></li>
                         <li><a href="{% url 'listOfCategories' %}">Категорії</a></li>
                         {% if user.is_authenticated %}
                         <li><a href="{% url 'profile' %}">Привіт, {{ user.firstname }}</a></li>

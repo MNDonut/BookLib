@@ -1,3 +1,34 @@
+@media (max-width: 950px) {
+    .wrapper .books-list-wrapper {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    .wrapper .book-title, 
+    .wrapper .book-author, 
+    .wrapper .book-price {
+        padding: 0;
+    }
+}
+
+@media (max-width: 665px) {
+    .wrapper .books-list-wrapper {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .wrapper .book {
+        grid-template-areas: "new popular"
+                             "img img"
+                             "title title"
+                             "author author"
+                             "price price"
+                             "buy buy";
+    }
+}
+
+@media (max-width: 450px) {
+    .wrapper .books-list-wrapper {
+        grid-template-columns: repeat(1, 1fr);
+    }
+}
+
 * {
     font-family: 'Balsamiq Sans', cursive;
 }
@@ -29,6 +60,7 @@
                          "title title"
                          "author author"
                          "price buy";
+    grid-template-columns: 1fr 1fr;
     row-gap: 20px;
     padding: 0 0 10px;
     transition: 0.3s ease-in-out;

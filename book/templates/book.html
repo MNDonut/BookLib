@@ -53,8 +53,8 @@
             </p>
             <br><hr><br>
             {% if book.isAvailable %}
-            <p class="available">
-                <span>У наявності</span>
+            <div class="available">
+                <span class="available-span">У наявності</span>
                 <br>
                 <div class="price-buy-favorite-available">
                     <span class="book-price">{{ book.price }} <b>UAH</b></span>
@@ -75,10 +75,10 @@
                         </a>
                     </div>
                 </div>
-            </p>
+            </div>
             {% else %}
             <p class="not-available">
-                <span>Немає в наявності</span>
+                <span class="available-span">Немає в наявності</span>
                 <br>
                 <div class="price-buy-favorite-not-available">
                     <span class="book-price">{{ book.price }} UAH</span>
