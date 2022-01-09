@@ -34,7 +34,7 @@ def cart(request):
                     newBookRate.save()
                 cartItem.delete()
 
-            return redirect('index')
+            return redirect('cart')
 
         context = {
             'items': items,
