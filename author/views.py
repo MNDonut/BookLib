@@ -5,7 +5,7 @@ from .models import Author
 
 def authorBooksBySlug(request, slug):
     author = Author.objects.get(slug=slug)
-    books = Book.objects.filter(author__slug=slug)
+    books = Book.objects.filter(author__slug=slug).order_by('title')
     context = {
         'author': author,
         'books': books

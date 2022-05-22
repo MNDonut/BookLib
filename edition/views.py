@@ -5,7 +5,7 @@ from .models import Edition
 
 def edition(request, slug):
     edition = Edition.objects.get(slug=slug)
-    books = Book.objects.filter(edition__slug=slug)
+    books = Book.objects.filter(edition__slug=slug).order_by('title')
     context = {
         'edition': edition,
         'books': books

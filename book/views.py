@@ -62,7 +62,7 @@ def bookBySlug(request, slug):
 
 def bookByCategorySlug(request, slug):
     category  = Category.objects.get(slug=slug)
-    books = Book.objects.filter(category=category)
+    books = Book.objects.filter(category=category).order_by('title')
     context = {
         'category': category,
         'books': books
