@@ -27,7 +27,7 @@ SECRET_KEY = 'django-insecure-iwx%1kv)t!6*wjr1)n6o3w6j!zn$#+qlxyi+3o(rzeuz%g1xlb
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['ihorsokhan.herokuapp.com', '127.0.0.1']
+ALLOWED_HOSTS = ['https://booklib.onrender.com', '127.0.0.1', '*']
 
 # Application definition
 
@@ -88,12 +88,8 @@ WSGI_APPLICATION = 'BOOKLIB.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'booklibdb',
-        'USER': 'ihor',
-        'PASSWORD': '12345',
-        'HOST': 'localhost',
-        'PORT': '5432'
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': 'booklibdb'
     }
 }
 
