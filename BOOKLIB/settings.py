@@ -84,12 +84,8 @@ WSGI_APPLICATION = 'BOOKLIB.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'booklibdb',
-        'USER': 'ihor',
-        'PASSWORD': '12345',
-        'HOST': 'localhost',
-        'PORT': '5432'
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': 'polished-cocoa-380313:us-central1:booklibdb',
     }
 }
 
